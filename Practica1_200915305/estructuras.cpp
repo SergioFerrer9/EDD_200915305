@@ -40,6 +40,7 @@ void ColaAviones::Eliminar_Cola_Aviones(){
     if(primeroCA!=ultimoCA){
         primeroCA=primeroCA->sig;
     }else{
+        primeroCA=ultimoCA=NULL;
         cout<<"La Pila esta vacia..."<<endl;
     }
 
@@ -64,13 +65,14 @@ void ColaAviones::Mostrar_Cola_Aviones(){
 }
 
 void ColaAviones::Graficar_Cola_Aviones(){
+      FILE *gra;
     if(primeroCA!=NULL){
-       FILE *gra;
+
        gra=fopen("Cola_Aviones.dot","wt");
        fputs("digraph g {  \n subgraph cluster_0 {\n",gra);
        fputs("rankdir= \"LR\"\n};\n",gra);
        fputs("node [\n" ,gra);
-       fputs("fontsize = \"16\"\n",gra);
+       fputs("fontsize = \"10\"\n",gra);
        fputs("shape = \"Mrecord\"\n",gra);
        fputs("color=\"darkslateblue\"\n",gra);
        fputs("style =\"filled, bold\"\n",gra);
@@ -114,27 +116,18 @@ void ColaAviones::Graficar_Cola_Aviones(){
            fputs("\"-> \"nodoAvion",gra);
            fprintf(gra,"%d",c);
            fputs( "\";\n",gra);
-
-               aux=aux->sig;
-               b++;
-               c++;
-       }
-
-        b =0;
-        c =b+1;
-
-       while(aux2->ant!=NULL){
-           // nodo1---->nodo2 siguintes
+           // nodo1<----nodo2 siguintes
            fputs("\"nodoAvion",gra);
            fprintf(gra,"%d",c);
            fputs("\"-> \"nodoAvion",gra);
            fprintf(gra,"%d",b);
            fputs( "\";\n",gra);
 
-               aux2=aux2->ant;
+               aux=aux->sig;
                b++;
                c++;
        }
+
 
 
 
@@ -145,6 +138,21 @@ void ColaAviones::Graficar_Cola_Aviones(){
 
     }else{
         cout<<"La Cola de Aviones esta Vacia..."<<endl;
+        gra=fopen("Cola_Aviones.dot","wt");
+        fputs("digraph g {  \n subgraph cluster_0 {\n",gra);
+        fputs("rankdir= \"LR\"\n};\n",gra);
+        fputs("node [\n" ,gra);
+        fputs("fontsize = \"10\"\n",gra);
+        fputs("shape = \"Mrecord\"\n",gra);
+        fputs("color=\"darkslateblue\"\n",gra);
+        fputs("style =\"filled, bold\"\n",gra);
+        fputs("];\n",gra);
+
+        // LA COLA ESTA VACIA...
+
+        fputs("}",gra);
+        fclose(gra);
+        system("dot -Tpng Cola_Aviones.dot -o Cola_Aviones.png");
     }
 }
 

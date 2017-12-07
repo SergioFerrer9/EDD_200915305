@@ -30,9 +30,14 @@ void MainWindow::on_pushButton_clicked()///Agrear a Cola...
     Cola->Mostrar_Cola_Aviones();*/
     Cola->Mostrar_Cola_Aviones();
     Cola->Graficar_Cola_Aviones();
+    QPixmap pix("/home/debian9/Escritorio/Practica1_200915305/Cola_Aviones.png");
+    ui->label_2->setPixmap(pix);
 }
 
 void MainWindow::on_pushButton_2_clicked()///Eliminar de Cola..
 {
-
+    Cola->Eliminar_Cola_Aviones();
+    Cola->Graficar_Cola_Aviones();
+    QPixmap pix("/home/debian9/Escritorio/Practica1_200915305/Cola_Aviones.png");
+    ui->label_2->setPixmap(pix);
 }
