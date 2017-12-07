@@ -1,0 +1,49 @@
+digraph g {  
+ subgraph cluster_0 {
+rankdir= "LR"
+};
+node [
+fontsize = "16"
+shape = "Mrecord"
+color="darkslateblue"
+style ="filled, bold"
+];
+"nodoAvion0"
+[ label=" Avion: 1 &#92;n Pasajeros: 1 &#92;n T_Desabordaje: 1 &#92;n T_Mantenimiento: 1"];
+"nodoAvion1"
+[ label=" Avion: 2 &#92;n Pasajeros: 2 &#92;n T_Desabordaje: 1 &#92;n T_Mantenimiento: 1"];
+"nodoAvion2"
+[ label=" Avion: 4 &#92;n Pasajeros: 3 &#92;n T_Desabordaje: 1 &#92;n T_Mantenimiento: 1"];
+"nodoAvion3"
+[ label=" Avion: 5 &#92;n Pasajeros: 4 &#92;n T_Desabordaje: 1 &#92;n T_Mantenimiento: 1"];
+"nodoAvion4"
+[ label=" Avion: 7 &#92;n Pasajeros: 5 &#92;n T_Desabordaje: 1 &#92;n T_Mantenimiento: 1"];
+"nodoAvion5"
+[ label=" Avion: 1 &#92;n Pasajeros: 1 &#92;n T_Desabordaje: 1 &#92;n T_Mantenimiento: 1"];
+"nodoAvion6"
+[ label=" Avion: 2 &#92;n Pasajeros: 2 &#92;n T_Desabordaje: 1 &#92;n T_Mantenimiento: 1"];
+"nodoAvion7"
+[ label=" Avion: 4 &#92;n Pasajeros: 3 &#92;n T_Desabordaje: 1 &#92;n T_Mantenimiento: 1"];
+"nodoAvion8"
+[ label=" Avion: 5 &#92;n Pasajeros: 4 &#92;n T_Desabordaje: 1 &#92;n T_Mantenimiento: 1"];
+"nodoAvion9"
+[ label=" Avion: 7 &#92;n Pasajeros: 5 &#92;n T_Desabordaje: 1 &#92;n T_Mantenimiento: 1"];
+"nodoAvion0"-> "nodoAvion1";
+"nodoAvion1"-> "nodoAvion2";
+"nodoAvion2"-> "nodoAvion3";
+"nodoAvion3"-> "nodoAvion4";
+"nodoAvion4"-> "nodoAvion5";
+"nodoAvion5"-> "nodoAvion6";
+"nodoAvion6"-> "nodoAvion7";
+"nodoAvion7"-> "nodoAvion8";
+"nodoAvion8"-> "nodoAvion9";
+"nodoAvion1"-> "nodoAvion0";
+"nodoAvion2"-> "nodoAvion1";
+"nodoAvion3"-> "nodoAvion2";
+"nodoAvion4"-> "nodoAvion3";
+"nodoAvion5"-> "nodoAvion4";
+"nodoAvion6"-> "nodoAvion5";
+"nodoAvion7"-> "nodoAvion6";
+"nodoAvion8"-> "nodoAvion7";
+"nodoAvion9"-> "nodoAvion8";
+}
