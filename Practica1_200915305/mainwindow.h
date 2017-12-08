@@ -12,6 +12,7 @@ class MainWindow : public QMainWindow
     Q_OBJECT
 
 public:
+    void Turnos();
     explicit MainWindow(QWidget *parent = 0);
     ~MainWindow();
 
@@ -24,6 +25,8 @@ private slots:
     void Graficar_Estructuras();
 
 
+
+    void on_pushButton_clicked();
 
 private:
     Ui::MainWindow *ui;

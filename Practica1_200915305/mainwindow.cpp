@@ -12,6 +12,9 @@ using std::endl;
 
 ColaAviones *Cola =new ColaAviones();
 int contador_Aviones=0;
+int Cantidad_Aviones=0;
+int Cantidad_Escritorios=0;
+int Cantidad_Mantenimiento=0;
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
@@ -34,72 +37,73 @@ void MainWindow::Graficar_Estructuras(){
 
 
 
-void MainWindow::on_pushButton_2_clicked()///Eliminar de Cola..
+void MainWindow::on_pushButton_2_clicked()///Simulacion..
 {
-    Cola->Eliminar_Cola_Aviones();
-    Cola->Graficar_Cola_Aviones();
-    QPixmap pix("/home/debian9/Escritorio/Practica1_200915305/Cola_Aviones.png");
-    ui->label_2->setPixmap(pix);
+    string Aviones=ui->lineEdit->text().toUtf8().constData();
+    string Escritorios=ui->lineEdit_2->text().toUtf8().constData();
+    string Mantenimiento=ui->lineEdit_2->text().toUtf8().constData();
+    Cantidad_Aviones=atoi(Aviones.c_str());
+    Cantidad_Escritorios=atoi(Escritorios.c_str());
+    Cantidad_Mantenimiento=atoi(Mantenimiento.c_str());
+    cout<<"Aviones...."<<Cantidad_Aviones<<endl;
+    ui->lineEdit->setDisabled(true);
+    ui->lineEdit_2->setDisabled(true);
+    ui->lineEdit_3->setDisabled(true);
+    Turnos();
+}
+
+void MainWindow::Turnos(){
+    if(Cantidad_Aviones>0){
+            srand(time(NULL));
+            contador_Aviones++;
+            ///Probabilidad de los aviones.....
+            ///
+            int num[10]={1,2,3,1,2,3,1,2,3,1};
+            int random=0+rand()%(10);
+            int avion= num[random];
+            cout<<avion<<","<<random<<endl;
+            ///Avion Pequeño = 1 = 0.4
+            ///Avion Mediano = 2 = 0.3
+            ///Avion Grande  = 3 = 0.3
+
+            if(avion==1){///Agregar un Avion Pequeño...
+                int pasajeros1 = 5+rand()%(10-5);
+                int mantenimiento1 = 1+rand()%(4-1);
+                Cola->Agregar_Cola_Aviones(contador_Aviones,"Pequeño",pasajeros1,1,mantenimiento1);
+                Cantidad_Aviones--;
+
+            }else if(avion==2){///Agregar un Avion Mediano...
+                int pasajeros2 = 15+rand()%(25-15);
+                int mantenimiento2 = 2+rand()%(5-2);
+                Cola->Agregar_Cola_Aviones(contador_Aviones,"Mediano",pasajeros2,2,mantenimiento2);
+                Cantidad_Aviones--;
+
+            }else{///Agregar un Avion Grande...
+                int pasajeros3 = 30+rand()%(40-30);
+                int mantenimiento3 = 3+rand()%(7-3);
+                Cola->Agregar_Cola_Aviones(contador_Aviones,"Grande",pasajeros3,3,mantenimiento3);
+                Cantidad_Aviones--;
+
+             }
+
+    Graficar_Estructuras();
+    }else{
+        cout<<"Se Terminaron los Aviones..."<<endl;
+    }
 }
 
 void MainWindow::on_pushButton_3_clicked()///TURNOS......
 {
-    srand(time(NULL));
-    contador_Aviones++;
-    ///Probabilidad de los aviones.....
-    ///
-    int num[10]={1,2,3,1,2,3,1,2,3,1};
-    int random=0+rand()%(10);
-    int avion= num[random];
-    cout<<avion<<","<<random<<endl;
-    ///Avion Pequeño = 1 = 0.4
-    ///Avion Mediano = 2 = 0.3
-    ///Avion Grande  = 3 = 0.3
-
-    if(avion==1){///Agregar un Avion Pequeño...
-        int pasajeros1 = 5+rand()%(10-5);
-        int mantenimiento1 = 1+rand()%(4-1);
-        Cola->Agregar_Cola_Aviones(contador_Aviones,"Pequeño",pasajeros1,1,mantenimiento1);
-
-    }else if(avion==2){///Agregar un Avion Mediano...
-        int pasajeros2 = 15+rand()%(25-15);
-        int mantenimiento2 = 2+rand()%(5-2);
-        Cola->Agregar_Cola_Aviones(contador_Aviones,"Mediano",pasajeros2,2,mantenimiento2);
-
-    }else{///Agregar un Avion Grande...
-        int pasajeros3 = 30+rand()%(40-30);
-        int mantenimiento3 = 3+rand()%(7-3);
-        Cola->Agregar_Cola_Aviones(contador_Aviones,"Grande",pasajeros3,3,mantenimiento3);
-
-    }
-
+    Turnos();
+    Cola->Verificar_Turnos();
     Graficar_Estructuras();
 }
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+void MainWindow::on_pushButton_clicked()///Habilitar
+{
+    ui->lineEdit->setDisabled(false);
+    ui->lineEdit_2->setDisabled(false);
+    ui->lineEdit_3->setDisabled(false);
+}

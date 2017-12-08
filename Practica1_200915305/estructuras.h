@@ -1,6 +1,8 @@
 #ifndef ESTRUCTURAS_H
 #define ESTRUCTURAS_H
 
+///****************************ESTRUCTURA DE LA COLA DOBLE DE LOS AVIONES*********************
+///
 
 struct NodoColaAviones
 {
@@ -13,12 +15,57 @@ struct NodoColaAviones
     struct NodoColaAviones *ant;
 };
 
+struct ColaPasajeros
+{
+    void Agregar_Cola_Pasajeros(int Pasajeros, int Avion, int Maletas, int Documentos, int Turnos);
+    void Eliminar_Cola_Pasajeros();
+    void Mostrar_Cola_Pasajeros();
+    void Graficar_Cola_Pasajeros();
+    void Verificar_Turnos_Pasajeros();
+    void Pasar_A_Registro();
+
+};
+
 struct ColaAviones
 {
     void Agregar_Cola_Aviones(int Avion, char *Tipo, int Pasajeros, int Turno_D, int Turno_M);
     void Eliminar_Cola_Aviones();
     void Mostrar_Cola_Aviones();
     void Graficar_Cola_Aviones();
+    void Verificar_Turnos();
+    void Desabordaje(int Pasajeros);
 };
 
+///**************************ESTRUCTURA DE LA COLA SIMPLE DE LOS PASAJEROS*********************
+///
+struct NodoColaPasajeros
+{
+    int Pasajeros;
+    int Avion;
+    int Maletas;
+    int Documentos;
+    int Turnos;
+    struct NodoColaPasajeros *sig;
+
+};
+
+
+
 #endif // ESTRUCTURAS_H
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

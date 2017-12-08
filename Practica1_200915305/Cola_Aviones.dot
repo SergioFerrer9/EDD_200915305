@@ -8,18 +8,197 @@ shape = "Mrecord"
 color="darkslateblue"
 style ="filled, bold"
 ];
-"nodoAvion0"
-[ label=" Avion: 1 &#92;n Tipo: Pequeño &#92;n Pasajeros: 7 &#92;n T_Desabordaje: 1 &#92;n T_Mantenimiento: 3"];
-"nodoAvion1"
-[ label=" Avion: 2 &#92;n Tipo: Pequeño &#92;n Pasajeros: 7 &#92;n T_Desabordaje: 1 &#92;n T_Mantenimiento: 3"];
-"nodoAvion2"
-[ label=" Avion: 3 &#92;n Tipo: Pequeño &#92;n Pasajeros: 5 &#92;n T_Desabordaje: 1 &#92;n T_Mantenimiento: 2"];
-"nodoAvion3"
-[ label=" Avion: 4 &#92;n Tipo: Pequeño &#92;n Pasajeros: 5 &#92;n T_Desabordaje: 1 &#92;n T_Mantenimiento: 2"];
-"nodoAvion0"-> "nodoAvion1";
-"nodoAvion1"-> "nodoAvion0";
-"nodoAvion1"-> "nodoAvion2";
-"nodoAvion2"-> "nodoAvion1";
-"nodoAvion2"-> "nodoAvion3";
-"nodoAvion3"-> "nodoAvion2";
+
+ subgraph cluster_1 {
+node [style=filled];
+"nodoPasajero0"
+[ label=" Pasajero: 0"];
+"nodoPasajero1"
+[ label=" Pasajero: 1"];
+"nodoPasajero2"
+[ label=" Pasajero: 2"];
+"nodoPasajero3"
+[ label=" Pasajero: 3"];
+"nodoPasajero4"
+[ label=" Pasajero: 4"];
+"nodoPasajero5"
+[ label=" Pasajero: 5"];
+"nodoPasajero6"
+[ label=" Pasajero: 6"];
+"nodoPasajero7"
+[ label=" Pasajero: 7"];
+"nodoPasajero8"
+[ label=" Pasajero: 8"];
+"nodoPasajero9"
+[ label=" Pasajero: 9"];
+"nodoPasajero10"
+[ label=" Pasajero: 10"];
+"nodoPasajero11"
+[ label=" Pasajero: 11"];
+"nodoPasajero12"
+[ label=" Pasajero: 12"];
+"nodoPasajero13"
+[ label=" Pasajero: 13"];
+"nodoPasajero14"
+[ label=" Pasajero: 14"];
+"nodoPasajero15"
+[ label=" Pasajero: 15"];
+"nodoPasajero16"
+[ label=" Pasajero: 16"];
+"nodoPasajero17"
+[ label=" Pasajero: 17"];
+"nodoPasajero18"
+[ label=" Pasajero: 18"];
+"nodoPasajero19"
+[ label=" Pasajero: 19"];
+"nodoPasajero20"
+[ label=" Pasajero: 20"];
+"nodoPasajero21"
+[ label=" Pasajero: 21"];
+"nodoPasajero22"
+[ label=" Pasajero: 22"];
+"nodoPasajero23"
+[ label=" Pasajero: 23"];
+"nodoPasajero24"
+[ label=" Pasajero: 24"];
+"nodoPasajero25"
+[ label=" Pasajero: 25"];
+"nodoPasajero26"
+[ label=" Pasajero: 26"];
+"nodoPasajero27"
+[ label=" Pasajero: 27"];
+"nodoPasajero28"
+[ label=" Pasajero: 28"];
+"nodoPasajero29"
+[ label=" Pasajero: 29"];
+"nodoPasajero30"
+[ label=" Pasajero: 30"];
+"nodoPasajero31"
+[ label=" Pasajero: 31"];
+"nodoPasajero32"
+[ label=" Pasajero: 32"];
+"nodoPasajero33"
+[ label=" Pasajero: 33"];
+"nodoPasajero34"
+[ label=" Pasajero: 34"];
+"nodoPasajero35"
+[ label=" Pasajero: 35"];
+"nodoPasajero36"
+[ label=" Pasajero: 36"];
+"nodoPasajero37"
+[ label=" Pasajero: 37"];
+"nodoPasajero38"
+[ label=" Pasajero: 38"];
+"nodoPasajero39"
+[ label=" Pasajero: 39"];
+"nodoPasajero40"
+[ label=" Pasajero: 40"];
+"nodoPasajero41"
+[ label=" Pasajero: 41"];
+"nodoPasajero42"
+[ label=" Pasajero: 42"];
+"nodoPasajero43"
+[ label=" Pasajero: 43"];
+"nodoPasajero44"
+[ label=" Pasajero: 44"];
+"nodoPasajero45"
+[ label=" Pasajero: 45"];
+"nodoPasajero46"
+[ label=" Pasajero: 46"];
+"nodoPasajero47"
+[ label=" Pasajero: 47"];
+"nodoPasajero48"
+[ label=" Pasajero: 48"];
+"nodoPasajero49"
+[ label=" Pasajero: 49"];
+"nodoPasajero50"
+[ label=" Pasajero: 50"];
+"nodoPasajero51"
+[ label=" Pasajero: 51"];
+"nodoPasajero52"
+[ label=" Pasajero: 52"];
+"nodoPasajero53"
+[ label=" Pasajero: 53"];
+"nodoPasajero54"
+[ label=" Pasajero: 54"];
+"nodoPasajero55"
+[ label=" Pasajero: 55"];
+"nodoPasajero56"
+[ label=" Pasajero: 56"];
+"nodoPasajero57"
+[ label=" Pasajero: 57"];
+"nodoPasajero58"
+[ label=" Pasajero: 58"];
+"nodoPasajero59"
+[ label=" Pasajero: 59"];
+"nodoPasajero60"
+[ label=" Pasajero: 60"];
+"nodoPasajero61"
+[ label=" Pasajero: 61"];
+"nodoPasajero0"-> "nodoPasajero1";
+"nodoPasajero1"-> "nodoPasajero2";
+"nodoPasajero2"-> "nodoPasajero3";
+"nodoPasajero3"-> "nodoPasajero4";
+"nodoPasajero4"-> "nodoPasajero5";
+"nodoPasajero5"-> "nodoPasajero6";
+"nodoPasajero6"-> "nodoPasajero7";
+"nodoPasajero7"-> "nodoPasajero8";
+"nodoPasajero8"-> "nodoPasajero9";
+"nodoPasajero9"-> "nodoPasajero10";
+"nodoPasajero10"-> "nodoPasajero11";
+"nodoPasajero11"-> "nodoPasajero12";
+"nodoPasajero12"-> "nodoPasajero13";
+"nodoPasajero13"-> "nodoPasajero14";
+"nodoPasajero14"-> "nodoPasajero15";
+"nodoPasajero15"-> "nodoPasajero16";
+"nodoPasajero16"-> "nodoPasajero17";
+"nodoPasajero17"-> "nodoPasajero18";
+"nodoPasajero18"-> "nodoPasajero19";
+"nodoPasajero19"-> "nodoPasajero20";
+"nodoPasajero20"-> "nodoPasajero21";
+"nodoPasajero21"-> "nodoPasajero22";
+"nodoPasajero22"-> "nodoPasajero23";
+"nodoPasajero23"-> "nodoPasajero24";
+"nodoPasajero24"-> "nodoPasajero25";
+"nodoPasajero25"-> "nodoPasajero26";
+"nodoPasajero26"-> "nodoPasajero27";
+"nodoPasajero27"-> "nodoPasajero28";
+"nodoPasajero28"-> "nodoPasajero29";
+"nodoPasajero29"-> "nodoPasajero30";
+"nodoPasajero30"-> "nodoPasajero31";
+"nodoPasajero31"-> "nodoPasajero32";
+"nodoPasajero32"-> "nodoPasajero33";
+"nodoPasajero33"-> "nodoPasajero34";
+"nodoPasajero34"-> "nodoPasajero35";
+"nodoPasajero35"-> "nodoPasajero36";
+"nodoPasajero36"-> "nodoPasajero37";
+"nodoPasajero37"-> "nodoPasajero38";
+"nodoPasajero38"-> "nodoPasajero39";
+"nodoPasajero39"-> "nodoPasajero40";
+"nodoPasajero40"-> "nodoPasajero41";
+"nodoPasajero41"-> "nodoPasajero42";
+"nodoPasajero42"-> "nodoPasajero43";
+"nodoPasajero43"-> "nodoPasajero44";
+"nodoPasajero44"-> "nodoPasajero45";
+"nodoPasajero45"-> "nodoPasajero46";
+"nodoPasajero46"-> "nodoPasajero47";
+"nodoPasajero47"-> "nodoPasajero48";
+"nodoPasajero48"-> "nodoPasajero49";
+"nodoPasajero49"-> "nodoPasajero50";
+"nodoPasajero50"-> "nodoPasajero51";
+"nodoPasajero51"-> "nodoPasajero52";
+"nodoPasajero52"-> "nodoPasajero53";
+"nodoPasajero53"-> "nodoPasajero54";
+"nodoPasajero54"-> "nodoPasajero55";
+"nodoPasajero55"-> "nodoPasajero56";
+"nodoPasajero56"-> "nodoPasajero57";
+"nodoPasajero57"-> "nodoPasajero58";
+"nodoPasajero58"-> "nodoPasajero59";
+"nodoPasajero59"-> "nodoPasajero60";
+"nodoPasajero60"-> "nodoPasajero61";
+fontsize = "10"
+shape = "Mrecord"
+color="blue"
+style ="filled, bold"
+}
 }

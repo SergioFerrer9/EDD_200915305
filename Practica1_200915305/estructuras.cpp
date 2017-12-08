@@ -6,13 +6,22 @@
 using namespace std;
 using std::cout;
 using std::endl;
+ColaPasajeros *newPasajeros = new ColaPasajeros();
+FILE *gra;
 
 ///************************PUNTEROS DE LA COLA AVIONES*************************
 typedef struct NodoColaAviones NodoCA;
 NodoCA *primeroCA;
 NodoCA *ultimoCA;
 
+///************************PUNTEROS DE LA COLA DE PASAJEROS*******************
+typedef struct NodoColaPasajeros NodoPA;
+NodoPA *primeroPA;
+NodoPA *ultimoPA;
+
+
 ///***********************AGREGAR A LA COLA AVIONES****************************
+///
 void ColaAviones::Agregar_Cola_Aviones(int Avion, char *Tipo, int Pasajeros, int Turno_D, int Turno_M){
     NodoCA *nuevo;
     nuevo=(NodoCA*)malloc(sizeof(struct NodoColaAviones));
@@ -35,7 +44,8 @@ void ColaAviones::Agregar_Cola_Aviones(int Avion, char *Tipo, int Pasajeros, int
     }
 
 }
-
+///*********************ELIMINAR DE LA COLA DE AVIONES*************************
+///
 void ColaAviones::Eliminar_Cola_Aviones(){
     if(primeroCA!=ultimoCA){
         primeroCA=primeroCA->sig;
@@ -46,6 +56,8 @@ void ColaAviones::Eliminar_Cola_Aviones(){
 
 }
 
+///**********************MOSTRAR COLA DE AVIONES********************************
+///
 void ColaAviones::Mostrar_Cola_Aviones(){
     NodoCA *aux=primeroCA;
     NodoCA *aux2=ultimoCA;
@@ -64,10 +76,109 @@ void ColaAviones::Mostrar_Cola_Aviones(){
 
 }
 
-void ColaAviones::Graficar_Cola_Aviones(){
-      FILE *gra;
-    if(primeroCA!=NULL){
+///*********************AGREGAR A LA COLA DE PASAJEROS***************************
+///
+void ColaPasajeros::Agregar_Cola_Pasajeros(int Pasajeros, int Avion, int Maletas, int Documentos, int Turnos){
+    NodoPA *nuevo;
+    nuevo=(NodoPA*)malloc(sizeof(struct NodoColaPasajeros));
+    nuevo->Pasajeros=Pasajeros;
+    nuevo->Avion=Avion;
+    nuevo->Maletas=Maletas;
+    nuevo->Documentos=Documentos;
+    nuevo->Turnos=Turnos;
 
+    if(primeroPA==NULL){///Agregar el Primer Nodo a la Cola...
+        nuevo->sig=primeroPA;
+        primeroPA=nuevo;
+        ultimoPA=nuevo;
+    }else{ ///Agregar un nuevo nodo a la Cola...
+        ultimoPA->sig=nuevo;
+        nuevo->sig=NULL;
+        ultimoPA=nuevo;
+    }
+}
+
+///*********************DESABORDAJE DE LOS AVIONES*******************************
+///
+void ColaAviones::Desabordaje(int Pasajeros){
+    for(int i=1;i<=Pasajeros;i++){
+        newPasajeros->Agregar_Cola_Pasajeros(i,1,1,1,1);
+    }
+
+}
+
+///*********************VERIFICAR TURNO DE LOS AVIONES***************************
+///
+void ColaAviones::Verificar_Turnos(){
+    if(primeroCA!=NULL){
+        if(primeroCA->Turno_Desabordaje>0){
+            primeroCA->Turno_Desabordaje--;
+        }
+        if(primeroCA->Turno_Desabordaje==0){
+            ///Desabordaje de los Pasajeros.....
+            Desabordaje(primeroCA->Pasajeros);
+
+            Eliminar_Cola_Aviones();
+            Graficar_Cola_Aviones();
+
+        }
+    }
+}
+
+///*********************GRAFICAR COLA PASAJEROS*********************************
+///
+void ColaPasajeros::Graficar_Cola_Pasajeros(){
+     if(primeroPA!=NULL){
+    fputs("\n subgraph cluster_1 {\n",gra);
+    fputs("node [style=filled];\n",gra);
+
+       int a=0;
+       NodoPA *aux=primeroPA;
+       while(aux!=NULL){
+           fputs("\"",gra);
+           fputs("nodoPasajero",gra);
+           fprintf(gra,"%d",a);
+           fputs("\"",gra);
+           fputs("\n[ ",gra);
+           fprintf(gra, "label=\" " );
+           fputs("Pasajero: ",gra);
+           fprintf(gra, "%d",a);
+           fputs("\"];\n",gra);
+           a++;
+               aux=aux->sig;
+       }
+
+       int b =0;
+       int c =b+1;
+       aux=primeroPA;
+       while(aux->sig!=NULL){
+           // nodo1---->nodo2 siguintes
+           fputs("\"nodoPasajero",gra);
+           fprintf(gra,"%d",b);
+           fputs("\"-> \"nodoPasajero",gra);
+           fprintf(gra,"%d",c);
+           fputs( "\";\n",gra);
+
+
+               aux=aux->sig;
+               b++;
+               c++;
+       }
+
+   // fputs("b0 -> b1 -> b2 -> b3;\n" ,gra);
+
+    fputs("fontsize = \"10\"\n",gra);
+    fputs("shape = \"Mrecord\"\n",gra);
+    fputs("color=\"blue\"\n",gra);
+    fputs("style =\"filled, bold\"\n",gra);
+    fputs("}\n",gra);
+}
+}
+///**********************GRAFICA DE LA COLA DE LOS AVIONES***********************
+///
+void ColaAviones::Graficar_Cola_Aviones(){
+    ///GRAFICAR LA COLA DE LOS AVIONES...............................................................
+    if(primeroCA!=NULL){
        gra=fopen("Cola_Aviones.dot","wt");
        fputs("digraph g {  \n subgraph cluster_0 {\n",gra);
        fputs("rankdir= \"LR\"\n};\n",gra);
@@ -104,8 +215,6 @@ void ColaAviones::Graficar_Cola_Aviones(){
            fprintf(gra, "%d",aux->Turno_Mantenimiento);
            fputs("\"];\n",gra);
            a++;
-
-
                aux=aux->sig;
        }
 
@@ -129,15 +238,7 @@ void ColaAviones::Graficar_Cola_Aviones(){
                aux=aux->sig;
                b++;
                c++;
-       }
-
-
-
-
-
-            fputs("}",gra);
-            fclose(gra);
-            system("dot -Tpng Cola_Aviones.dot -o Cola_Aviones.png");
+       }      
 
     }else{
         cout<<"La Cola de Aviones esta Vacia..."<<endl;
@@ -153,10 +254,13 @@ void ColaAviones::Graficar_Cola_Aviones(){
 
         // LA COLA ESTA VACIA...
 
-        fputs("}",gra);
-        fclose(gra);
-        system("dot -Tpng Cola_Aviones.dot -o Cola_Aviones.png");
     }
+    newPasajeros->Graficar_Cola_Pasajeros();
+    fputs("}",gra);
+
+    fclose(gra);
+    system("dot -Tpng Cola_Aviones.dot -o Cola_Aviones.png");
+
 }
 
 
