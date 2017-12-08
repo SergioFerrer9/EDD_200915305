@@ -8,4 +8,18 @@ shape = "Mrecord"
 color="darkslateblue"
 style ="filled, bold"
 ];
+"nodoAvion0"
+[ label=" Avion: 1 &#92;n Tipo: Pequeño &#92;n Pasajeros: 7 &#92;n T_Desabordaje: 1 &#92;n T_Mantenimiento: 3"];
+"nodoAvion1"
+[ label=" Avion: 2 &#92;n Tipo: Pequeño &#92;n Pasajeros: 7 &#92;n T_Desabordaje: 1 &#92;n T_Mantenimiento: 3"];
+"nodoAvion2"
+[ label=" Avion: 3 &#92;n Tipo: Pequeño &#92;n Pasajeros: 5 &#92;n T_Desabordaje: 1 &#92;n T_Mantenimiento: 2"];
+"nodoAvion3"
+[ label=" Avion: 4 &#92;n Tipo: Pequeño &#92;n Pasajeros: 5 &#92;n T_Desabordaje: 1 &#92;n T_Mantenimiento: 2"];
+"nodoAvion0"-> "nodoAvion1";
+"nodoAvion1"-> "nodoAvion0";
+"nodoAvion1"-> "nodoAvion2";
+"nodoAvion2"-> "nodoAvion1";
+"nodoAvion2"-> "nodoAvion3";
+"nodoAvion3"-> "nodoAvion2";
 }

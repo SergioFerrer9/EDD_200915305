@@ -91,6 +91,9 @@ void ColaAviones::Graficar_Cola_Aviones(){
            fputs("Avion: ",gra);
            fprintf(gra, "%d",aux->Avion);
            fputs(" &#92;n ",gra);
+           fputs("Tipo: ",gra);
+           fprintf(gra, "%s",aux->Tipo);
+           fputs(" &#92;n ",gra);
            fputs("Pasajeros: ",gra);
            fprintf(gra, "%d",aux->Pasajeros);
            fputs(" &#92;n ",gra);
