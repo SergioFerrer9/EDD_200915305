@@ -8,134 +8,121 @@ shape = "Mrecord"
 color="darkslateblue"
 style ="filled, bold"
 ];
+"nodoAvion0"
+[ label=" Avion: 4 &#92;n Tipo: Grande &#92;n Pasajeros: 34 &#92;n T_Desabordaje: 1 &#92;n T_Mantenimiento: 4"];
+"nodoAvion1"
+[ label=" Avion: 5 &#92;n Tipo: Grande &#92;n Pasajeros: 34 &#92;n T_Desabordaje: 3 &#92;n T_Mantenimiento: 6"];
+"nodoAvion0"-> "nodoAvion1";
+"nodoAvion1"-> "nodoAvion0";
 
  subgraph cluster_1 {
 node [style=filled];
-"nodoPasajero0"
-[ label=" Pasajero: 0"];
 "nodoPasajero1"
-[ label=" Pasajero: 1"];
+[ label=" Pasajero: 1 &#92;n Avion: 1 &#92;n Turnos: 1 &#92;n Maletas: 3 &#92;n Doc: 2"];
 "nodoPasajero2"
-[ label=" Pasajero: 2"];
+[ label=" Pasajero: 2 &#92;n Avion: 1 &#92;n Turnos: 1 &#92;n Maletas: 1 &#92;n Doc: 6"];
 "nodoPasajero3"
-[ label=" Pasajero: 3"];
+[ label=" Pasajero: 3 &#92;n Avion: 1 &#92;n Turnos: 2 &#92;n Maletas: 2 &#92;n Doc: 7"];
 "nodoPasajero4"
-[ label=" Pasajero: 4"];
+[ label=" Pasajero: 4 &#92;n Avion: 1 &#92;n Turnos: 2 &#92;n Maletas: 2 &#92;n Doc: 3"];
 "nodoPasajero5"
-[ label=" Pasajero: 5"];
+[ label=" Pasajero: 5 &#92;n Avion: 1 &#92;n Turnos: 1 &#92;n Maletas: 3 &#92;n Doc: 8"];
 "nodoPasajero6"
-[ label=" Pasajero: 6"];
+[ label=" Pasajero: 6 &#92;n Avion: 1 &#92;n Turnos: 2 &#92;n Maletas: 3 &#92;n Doc: 2"];
 "nodoPasajero7"
-[ label=" Pasajero: 7"];
+[ label=" Pasajero: 7 &#92;n Avion: 1 &#92;n Turnos: 2 &#92;n Maletas: 3 &#92;n Doc: 3"];
 "nodoPasajero8"
-[ label=" Pasajero: 8"];
+[ label=" Pasajero: 8 &#92;n Avion: 1 &#92;n Turnos: 3 &#92;n Maletas: 3 &#92;n Doc: 5"];
 "nodoPasajero9"
-[ label=" Pasajero: 9"];
+[ label=" Pasajero: 9 &#92;n Avion: 1 &#92;n Turnos: 3 &#92;n Maletas: 2 &#92;n Doc: 8"];
 "nodoPasajero10"
-[ label=" Pasajero: 10"];
+[ label=" Pasajero: 10 &#92;n Avion: 1 &#92;n Turnos: 2 &#92;n Maletas: 1 &#92;n Doc: 5"];
 "nodoPasajero11"
-[ label=" Pasajero: 11"];
+[ label=" Pasajero: 11 &#92;n Avion: 1 &#92;n Turnos: 3 &#92;n Maletas: 2 &#92;n Doc: 9"];
 "nodoPasajero12"
-[ label=" Pasajero: 12"];
+[ label=" Pasajero: 12 &#92;n Avion: 1 &#92;n Turnos: 1 &#92;n Maletas: 3 &#92;n Doc: 10"];
 "nodoPasajero13"
-[ label=" Pasajero: 13"];
+[ label=" Pasajero: 13 &#92;n Avion: 1 &#92;n Turnos: 2 &#92;n Maletas: 1 &#92;n Doc: 9"];
 "nodoPasajero14"
-[ label=" Pasajero: 14"];
+[ label=" Pasajero: 14 &#92;n Avion: 1 &#92;n Turnos: 1 &#92;n Maletas: 1 &#92;n Doc: 8"];
 "nodoPasajero15"
-[ label=" Pasajero: 15"];
+[ label=" Pasajero: 15 &#92;n Avion: 1 &#92;n Turnos: 1 &#92;n Maletas: 2 &#92;n Doc: 10"];
 "nodoPasajero16"
-[ label=" Pasajero: 16"];
+[ label=" Pasajero: 16 &#92;n Avion: 1 &#92;n Turnos: 3 &#92;n Maletas: 3 &#92;n Doc: 5"];
 "nodoPasajero17"
-[ label=" Pasajero: 17"];
+[ label=" Pasajero: 17 &#92;n Avion: 1 &#92;n Turnos: 3 &#92;n Maletas: 4 &#92;n Doc: 7"];
 "nodoPasajero18"
-[ label=" Pasajero: 18"];
+[ label=" Pasajero: 18 &#92;n Avion: 1 &#92;n Turnos: 3 &#92;n Maletas: 1 &#92;n Doc: 3"];
 "nodoPasajero19"
-[ label=" Pasajero: 19"];
+[ label=" Pasajero: 19 &#92;n Avion: 1 &#92;n Turnos: 3 &#92;n Maletas: 4 &#92;n Doc: 4"];
 "nodoPasajero20"
-[ label=" Pasajero: 20"];
+[ label=" Pasajero: 20 &#92;n Avion: 1 &#92;n Turnos: 2 &#92;n Maletas: 4 &#92;n Doc: 6"];
 "nodoPasajero21"
-[ label=" Pasajero: 21"];
+[ label=" Pasajero: 21 &#92;n Avion: 1 &#92;n Turnos: 3 &#92;n Maletas: 1 &#92;n Doc: 2"];
 "nodoPasajero22"
-[ label=" Pasajero: 22"];
+[ label=" Pasajero: 22 &#92;n Avion: 1 &#92;n Turnos: 1 &#92;n Maletas: 1 &#92;n Doc: 2"];
 "nodoPasajero23"
-[ label=" Pasajero: 23"];
+[ label=" Pasajero: 23 &#92;n Avion: 1 &#92;n Turnos: 1 &#92;n Maletas: 2 &#92;n Doc: 2"];
 "nodoPasajero24"
-[ label=" Pasajero: 24"];
+[ label=" Pasajero: 24 &#92;n Avion: 1 &#92;n Turnos: 2 &#92;n Maletas: 4 &#92;n Doc: 8"];
 "nodoPasajero25"
-[ label=" Pasajero: 25"];
+[ label=" Pasajero: 25 &#92;n Avion: 1 &#92;n Turnos: 2 &#92;n Maletas: 2 &#92;n Doc: 1"];
 "nodoPasajero26"
-[ label=" Pasajero: 26"];
+[ label=" Pasajero: 26 &#92;n Avion: 1 &#92;n Turnos: 2 &#92;n Maletas: 1 &#92;n Doc: 9"];
 "nodoPasajero27"
-[ label=" Pasajero: 27"];
+[ label=" Pasajero: 27 &#92;n Avion: 1 &#92;n Turnos: 3 &#92;n Maletas: 3 &#92;n Doc: 4"];
 "nodoPasajero28"
-[ label=" Pasajero: 28"];
+[ label=" Pasajero: 28 &#92;n Avion: 1 &#92;n Turnos: 3 &#92;n Maletas: 4 &#92;n Doc: 7"];
 "nodoPasajero29"
-[ label=" Pasajero: 29"];
+[ label=" Pasajero: 29 &#92;n Avion: 1 &#92;n Turnos: 1 &#92;n Maletas: 1 &#92;n Doc: 6"];
 "nodoPasajero30"
-[ label=" Pasajero: 30"];
+[ label=" Pasajero: 30 &#92;n Avion: 1 &#92;n Turnos: 3 &#92;n Maletas: 3 &#92;n Doc: 1"];
 "nodoPasajero31"
-[ label=" Pasajero: 31"];
+[ label=" Pasajero: 31 &#92;n Avion: 1 &#92;n Turnos: 3 &#92;n Maletas: 3 &#92;n Doc: 5"];
 "nodoPasajero32"
-[ label=" Pasajero: 32"];
+[ label=" Pasajero: 32 &#92;n Avion: 1 &#92;n Turnos: 2 &#92;n Maletas: 3 &#92;n Doc: 1"];
 "nodoPasajero33"
-[ label=" Pasajero: 33"];
+[ label=" Pasajero: 33 &#92;n Avion: 1 &#92;n Turnos: 2 &#92;n Maletas: 1 &#92;n Doc: 9"];
 "nodoPasajero34"
-[ label=" Pasajero: 34"];
+[ label=" Pasajero: 34 &#92;n Avion: 2 &#92;n Turnos: 2 &#92;n Maletas: 3 &#92;n Doc: 4"];
 "nodoPasajero35"
-[ label=" Pasajero: 35"];
+[ label=" Pasajero: 35 &#92;n Avion: 2 &#92;n Turnos: 1 &#92;n Maletas: 2 &#92;n Doc: 3"];
 "nodoPasajero36"
-[ label=" Pasajero: 36"];
+[ label=" Pasajero: 36 &#92;n Avion: 2 &#92;n Turnos: 3 &#92;n Maletas: 1 &#92;n Doc: 5"];
 "nodoPasajero37"
-[ label=" Pasajero: 37"];
+[ label=" Pasajero: 37 &#92;n Avion: 2 &#92;n Turnos: 2 &#92;n Maletas: 4 &#92;n Doc: 9"];
 "nodoPasajero38"
-[ label=" Pasajero: 38"];
+[ label=" Pasajero: 38 &#92;n Avion: 2 &#92;n Turnos: 3 &#92;n Maletas: 1 &#92;n Doc: 2"];
 "nodoPasajero39"
-[ label=" Pasajero: 39"];
+[ label=" Pasajero: 39 &#92;n Avion: 2 &#92;n Turnos: 1 &#92;n Maletas: 1 &#92;n Doc: 4"];
 "nodoPasajero40"
-[ label=" Pasajero: 40"];
+[ label=" Pasajero: 40 &#92;n Avion: 2 &#92;n Turnos: 3 &#92;n Maletas: 3 &#92;n Doc: 9"];
 "nodoPasajero41"
-[ label=" Pasajero: 41"];
+[ label=" Pasajero: 41 &#92;n Avion: 2 &#92;n Turnos: 3 &#92;n Maletas: 4 &#92;n Doc: 1"];
 "nodoPasajero42"
-[ label=" Pasajero: 42"];
+[ label=" Pasajero: 42 &#92;n Avion: 2 &#92;n Turnos: 1 &#92;n Maletas: 3 &#92;n Doc: 3"];
 "nodoPasajero43"
-[ label=" Pasajero: 43"];
+[ label=" Pasajero: 43 &#92;n Avion: 2 &#92;n Turnos: 1 &#92;n Maletas: 2 &#92;n Doc: 7"];
 "nodoPasajero44"
-[ label=" Pasajero: 44"];
+[ label=" Pasajero: 44 &#92;n Avion: 2 &#92;n Turnos: 1 &#92;n Maletas: 1 &#92;n Doc: 9"];
 "nodoPasajero45"
-[ label=" Pasajero: 45"];
+[ label=" Pasajero: 45 &#92;n Avion: 2 &#92;n Turnos: 3 &#92;n Maletas: 3 &#92;n Doc: 1"];
 "nodoPasajero46"
-[ label=" Pasajero: 46"];
+[ label=" Pasajero: 46 &#92;n Avion: 2 &#92;n Turnos: 1 &#92;n Maletas: 3 &#92;n Doc: 1"];
 "nodoPasajero47"
-[ label=" Pasajero: 47"];
+[ label=" Pasajero: 47 &#92;n Avion: 2 &#92;n Turnos: 2 &#92;n Maletas: 3 &#92;n Doc: 4"];
 "nodoPasajero48"
-[ label=" Pasajero: 48"];
+[ label=" Pasajero: 48 &#92;n Avion: 2 &#92;n Turnos: 3 &#92;n Maletas: 4 &#92;n Doc: 2"];
 "nodoPasajero49"
-[ label=" Pasajero: 49"];
+[ label=" Pasajero: 49 &#92;n Avion: 3 &#92;n Turnos: 3 &#92;n Maletas: 2 &#92;n Doc: 10"];
 "nodoPasajero50"
-[ label=" Pasajero: 50"];
+[ label=" Pasajero: 50 &#92;n Avion: 3 &#92;n Turnos: 1 &#92;n Maletas: 3 &#92;n Doc: 6"];
 "nodoPasajero51"
-[ label=" Pasajero: 51"];
+[ label=" Pasajero: 51 &#92;n Avion: 3 &#92;n Turnos: 2 &#92;n Maletas: 2 &#92;n Doc: 3"];
 "nodoPasajero52"
-[ label=" Pasajero: 52"];
+[ label=" Pasajero: 52 &#92;n Avion: 3 &#92;n Turnos: 1 &#92;n Maletas: 4 &#92;n Doc: 2"];
 "nodoPasajero53"
-[ label=" Pasajero: 53"];
-"nodoPasajero54"
-[ label=" Pasajero: 54"];
-"nodoPasajero55"
-[ label=" Pasajero: 55"];
-"nodoPasajero56"
-[ label=" Pasajero: 56"];
-"nodoPasajero57"
-[ label=" Pasajero: 57"];
-"nodoPasajero58"
-[ label=" Pasajero: 58"];
-"nodoPasajero59"
-[ label=" Pasajero: 59"];
-"nodoPasajero60"
-[ label=" Pasajero: 60"];
-"nodoPasajero61"
-[ label=" Pasajero: 61"];
-"nodoPasajero0"-> "nodoPasajero1";
+[ label=" Pasajero: 53 &#92;n Avion: 3 &#92;n Turnos: 1 &#92;n Maletas: 1 &#92;n Doc: 9"];
 "nodoPasajero1"-> "nodoPasajero2";
 "nodoPasajero2"-> "nodoPasajero3";
 "nodoPasajero3"-> "nodoPasajero4";
@@ -188,17 +175,10 @@ node [style=filled];
 "nodoPasajero50"-> "nodoPasajero51";
 "nodoPasajero51"-> "nodoPasajero52";
 "nodoPasajero52"-> "nodoPasajero53";
-"nodoPasajero53"-> "nodoPasajero54";
-"nodoPasajero54"-> "nodoPasajero55";
-"nodoPasajero55"-> "nodoPasajero56";
-"nodoPasajero56"-> "nodoPasajero57";
-"nodoPasajero57"-> "nodoPasajero58";
-"nodoPasajero58"-> "nodoPasajero59";
-"nodoPasajero59"-> "nodoPasajero60";
-"nodoPasajero60"-> "nodoPasajero61";
 fontsize = "10"
 shape = "Mrecord"
 color="blue"
 style ="filled, bold"
+label ="Pasajeros"
 }
 }

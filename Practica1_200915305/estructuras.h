@@ -15,17 +15,6 @@ struct NodoColaAviones
     struct NodoColaAviones *ant;
 };
 
-struct ColaPasajeros
-{
-    void Agregar_Cola_Pasajeros(int Pasajeros, int Avion, int Maletas, int Documentos, int Turnos);
-    void Eliminar_Cola_Pasajeros();
-    void Mostrar_Cola_Pasajeros();
-    void Graficar_Cola_Pasajeros();
-    void Verificar_Turnos_Pasajeros();
-    void Pasar_A_Registro();
-
-};
-
 struct ColaAviones
 {
     void Agregar_Cola_Aviones(int Avion, char *Tipo, int Pasajeros, int Turno_D, int Turno_M);
@@ -33,14 +22,13 @@ struct ColaAviones
     void Mostrar_Cola_Aviones();
     void Graficar_Cola_Aviones();
     void Verificar_Turnos();
-    void Desabordaje(int Pasajeros);
+    void Desabordaje(int Pasajeros, int Avion);
 };
 
 ///**************************ESTRUCTURA DE LA COLA SIMPLE DE LOS PASAJEROS*********************
 ///
 struct NodoColaPasajeros
 {
-    int Pasajeros;
     int Avion;
     int Maletas;
     int Documentos;
@@ -49,6 +37,16 @@ struct NodoColaPasajeros
 
 };
 
+struct ColaPasajeros
+{
+    void Agregar_Cola_Pasajeros( int Avion, int Maletas, int Documentos, int Turnos);
+    void Eliminar_Cola_Pasajeros();
+    void Mostrar_Cola_Pasajeros();
+    void Graficar_Cola_Pasajeros();
+    void Verificar_Turnos_Pasajeros();
+    void Pasar_A_Registro();
+
+};
 
 
 #endif // ESTRUCTURAS_H
