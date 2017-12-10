@@ -13,6 +13,7 @@ class MainWindow : public QMainWindow
 
 public:
     void Turnos();
+    char* Letra(char *letra);
     explicit MainWindow(QWidget *parent = 0);
     ~MainWindow();
 

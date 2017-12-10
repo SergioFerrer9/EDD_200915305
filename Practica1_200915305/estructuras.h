@@ -48,6 +48,24 @@ struct ColaPasajeros
 
 };
 
+///**************************ESTRUCTURA DE LA COLA DE LOS ESCRITORIOS**************************
+///
+struct NodoEscritorio
+{
+    char *Escritorio;
+    struct NodoEscritorio *sig;
+    struct NodoEscritorio *ant;
+
+};
+
+struct ColaEscritorios
+{
+    void Agregar_Cola_Escritorios(char *escritorio);
+    void Ordenar();
+    void Mostrar_Cola_Escritorios();
+    void Graficar_Cola_Escritorios();
+    int contador=0;
+};
 
 #endif // ESTRUCTURAS_H
 

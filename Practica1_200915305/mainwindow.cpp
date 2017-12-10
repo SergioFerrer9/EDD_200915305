@@ -5,12 +5,15 @@
 #include <iostream>
 #include <string.h>
 #include <time.h>
+#include <sstream>
 
 using namespace std;
 using std::cout;
 using std::endl;
+stringstream ss;
 
 ColaAviones *Cola =new ColaAviones();
+ColaEscritorios *Escri = new ColaEscritorios();
 int contador_Aviones=0;
 int Cantidad_Aviones=0;
 int Cantidad_Escritorios=0;
@@ -49,7 +52,68 @@ void MainWindow::on_pushButton_2_clicked()///Simulacion..
     ui->lineEdit->setDisabled(true);
     ui->lineEdit_2->setDisabled(true);
     ui->lineEdit_3->setDisabled(true);
+    char *letra;
+    for(int i=1; i<=Cantidad_Escritorios; i++){
+
+        if(i==1){
+           letra="Z";
+        }else if(i==2){
+           letra="X";
+        }else if(i==3){
+           letra="C";
+        }else if(i==4){
+           letra="D";
+        }else if(i==5){
+           letra="E";
+        }else if(i==6){
+           letra="F";
+        }else if(i==7){
+            letra="G";
+         }else if(i==8){
+            letra="H";
+         }else if(i==9){
+            letra="I";
+         }else if(i==10){
+            letra="J";
+         }else if(i==11){
+            letra="K";
+         }else if(i==12){
+            letra="L";
+         }else if(i==13){
+            letra="M";
+         }else if(i==14){
+            letra="N";
+         }else if(i==15){
+            letra="O";
+         }else if(i==16){
+            letra="P";
+         }else if(i==17){
+            letra="Q";
+         }else if(i==18){
+            letra="R";
+         }else if(i==19){
+            letra="S";
+         }else if(i==20){
+            letra="T";
+         }else if(i==21){
+            letra="U";
+         }else if(i==22){
+            letra="V";
+         }else if(i==23){
+            letra="W";
+         }else if(i==24){
+            letra="X";
+         }else if(i==25){
+            letra="Y";
+         }else if(i==26){
+            letra="Z";
+         }
+        Escri->Agregar_Cola_Escritorios(letra);
+
+
+    }
     Turnos();
+
 }
 
 void MainWindow::Turnos(){
@@ -107,3 +171,5 @@ void MainWindow::on_pushButton_clicked()///Habilitar
     ui->lineEdit_2->setDisabled(false);
     ui->lineEdit_3->setDisabled(false);
 }
+
+

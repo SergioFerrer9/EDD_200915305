@@ -7,6 +7,9 @@ using namespace std;
 using std::cout;
 using std::endl;
 ColaPasajeros *newPasajeros = new ColaPasajeros();
+ColaEscritorios *newEscritorios = new ColaEscritorios();
+NodoEscritorio *NodoEcritorio_ = new NodoEscritorio();
+
 FILE *gra;
 
 ///************************PUNTEROS DE LA COLA AVIONES*************************
@@ -18,6 +21,11 @@ NodoCA *ultimoCA;
 typedef struct NodoColaPasajeros NodoPA;
 NodoPA *primeroPA;
 NodoPA *ultimoPA;
+
+///************************PUNTEROS DE LA COLA DE ESCRITORIOS*******************
+typedef struct NodoEscritorio NodoES;
+NodoES *primeroES;
+NodoES *ultimoES;
 
 
 ///***********************AGREGAR A LA COLA AVIONES****************************
@@ -273,10 +281,144 @@ void ColaAviones::Graficar_Cola_Aviones(){
 
     }
     newPasajeros->Graficar_Cola_Pasajeros();
+    newEscritorios->Graficar_Cola_Escritorios();
+
     fputs("}",gra);
 
     fclose(gra);
     system("dot -Tpng Cola_Aviones.dot -o Cola_Aviones.png");
+
+}
+
+///*******************COLA DOBLE DE LOS ESCRITORIOS************************
+
+void ColaEscritorios::Agregar_Cola_Escritorios(char *escritorio){
+    NodoES *nuevo;
+    nuevo=(NodoES*)malloc(sizeof(struct NodoEscritorio));
+    nuevo->Escritorio=escritorio;
+    nuevo->ant=NULL;
+    nuevo->sig=NULL;
+
+    if(primeroES==NULL){
+        nuevo->ant=NULL;
+        nuevo->sig=NULL;
+        primeroES=nuevo;
+        ultimoES=nuevo;
+        newEscritorios->contador++;
+    }else{
+        nuevo->sig=NULL;
+        nuevo->ant=ultimoES;
+        ultimoES->sig=nuevo;
+        ultimoES=nuevo;
+        newEscritorios->contador++;
+
+
+    }
+
+    //AGREGAR ORDENAMIENTO....
+
+   Ordenar();
+}
+
+void ColaEscritorios::Ordenar(){
+
+
+    NodoES *temp=primeroES;
+
+    cout<<"Contador....."<<newEscritorios->contador<<endl;
+    for(int i=0; i<newEscritorios->contador; i++){
+        cout<<"FOR1....."<<endl;
+        NodoES *temporal=temp->sig;
+        for (int j=0; j<newEscritorios->contador-1; j++) {
+            if(temporal!=NULL){
+            if(strcmp(temporal->Escritorio,temp->Escritorio)<0){
+                printf("es mayor\n");
+                NodoES *aux;
+                aux->Escritorio=temporal->Escritorio;
+                temporal->Escritorio=temp->Escritorio;
+                temp->Escritorio=temporal->Escritorio;
+                temp->Escritorio=aux->Escritorio;
+
+              /*  aux->Escritorio = temporal->Escritorio;
+                temporal->Escritorio=temp->Escritorio;
+                temp->Escritorio=aux->Escritorio;
+                */
+
+             }
+            printf("es menor\n");
+            temporal=temporal->sig;
+            }
+
+        }
+        temp=temp->sig;
+    }
+
+
+
+
+}
+
+
+
+
+
+void ColaEscritorios::Graficar_Cola_Escritorios(){
+   if(primeroES!=NULL){
+   fputs("\n subgraph cluster_2 {\n",gra);
+   fputs("node [style=filled];\n",gra);
+
+      int a=1;
+      NodoES *aux=primeroES;
+      while(aux!=NULL){
+          fputs("\"",gra);
+          fputs("nodoEscritorio",gra);
+          fprintf(gra,"%d",a);
+          fputs("\"",gra);
+          fputs("\n[ ",gra);
+          fprintf(gra, "label=\" " );
+          fputs("Escritorio: ",gra);
+          fprintf(gra, "%d",a);
+          fputs(" &#92;n ",gra);
+          fputs("Avion: ",gra);
+          fprintf(gra, "%s",aux->Escritorio);
+
+          fputs("\"];\n",gra);
+          a++;
+              aux=aux->sig;
+      }
+
+      int b =1;
+      int c =b+1;
+      aux=primeroES;
+      while(aux->sig!=NULL){
+          // nodo1---->nodo2 siguintes
+          fputs("\"nodoEscritorio",gra);
+          fprintf(gra,"%d",b);
+          fputs("\"-> \"nodoEscritorio",gra);
+          fprintf(gra,"%d",c);
+          fputs( "\";\n",gra);
+          // nodo1<----nodo2 siguintes
+          fputs("\"nodoEscritorio",gra);
+          fprintf(gra,"%d",c);
+          fputs("\"-> \"nodoEscritorio",gra);
+          fprintf(gra,"%d",b);
+          fputs( "\";\n",gra);
+
+
+              aux=aux->sig;
+              b++;
+              c++;
+      }
+
+
+
+   fputs("fontsize = \"10\"\n",gra);
+   fputs("shape = \"Mrecord\"\n",gra);
+   fputs("color=\"cyan4\"\n",gra);
+   fputs("style =\"filled, bold\"\n",gra);
+   fputs("label =\"Escritorios\"\n",gra);
+   fputs("}\n",gra);
+}
 
 }
 

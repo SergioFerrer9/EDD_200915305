@@ -1048,6 +1048,11 @@ mainwindow.o: mainwindow.cpp mainwindow.h \
 		../../Qt/5.10.0/gcc_64/include/QtGui/qinputmethod.h \
 		../../Qt/5.10.0/gcc_64/include/QtWidgets/QButtonGroup \
 		../../Qt/5.10.0/gcc_64/include/QtWidgets/qbuttongroup.h \
+		../../Qt/5.10.0/gcc_64/include/QtWidgets/QGridLayout \
+		../../Qt/5.10.0/gcc_64/include/QtWidgets/qgridlayout.h \
+		../../Qt/5.10.0/gcc_64/include/QtWidgets/qlayout.h \
+		../../Qt/5.10.0/gcc_64/include/QtWidgets/qlayoutitem.h \
+		../../Qt/5.10.0/gcc_64/include/QtWidgets/qboxlayout.h \
 		../../Qt/5.10.0/gcc_64/include/QtWidgets/QHeaderView \
 		../../Qt/5.10.0/gcc_64/include/QtWidgets/qheaderview.h \
 		../../Qt/5.10.0/gcc_64/include/QtWidgets/qabstractitemview.h \
@@ -1065,6 +1070,8 @@ mainwindow.o: mainwindow.cpp mainwindow.h \
 		../../Qt/5.10.0/gcc_64/include/QtWidgets/qstyle.h \
 		../../Qt/5.10.0/gcc_64/include/QtWidgets/qtabbar.h \
 		../../Qt/5.10.0/gcc_64/include/QtWidgets/qrubberband.h \
+		../../Qt/5.10.0/gcc_64/include/QtWidgets/QLabel \
+		../../Qt/5.10.0/gcc_64/include/QtWidgets/qlabel.h \
 		../../Qt/5.10.0/gcc_64/include/QtWidgets/QLineEdit \
 		../../Qt/5.10.0/gcc_64/include/QtWidgets/qlineedit.h \
 		../../Qt/5.10.0/gcc_64/include/QtGui/qtextcursor.h \
@@ -1074,8 +1081,23 @@ mainwindow.o: mainwindow.cpp mainwindow.h \
 		../../Qt/5.10.0/gcc_64/include/QtWidgets/QMenuBar \
 		../../Qt/5.10.0/gcc_64/include/QtWidgets/qmenubar.h \
 		../../Qt/5.10.0/gcc_64/include/QtWidgets/qmenu.h \
+		../../Qt/5.10.0/gcc_64/include/QtWidgets/QPlainTextEdit \
+		../../Qt/5.10.0/gcc_64/include/QtWidgets/qplaintextedit.h \
+		../../Qt/5.10.0/gcc_64/include/QtWidgets/qtextedit.h \
+		../../Qt/5.10.0/gcc_64/include/QtGui/qtextdocument.h \
+		../../Qt/5.10.0/gcc_64/include/QtGui/qabstracttextdocumentlayout.h \
+		../../Qt/5.10.0/gcc_64/include/QtGui/qtextlayout.h \
+		../../Qt/5.10.0/gcc_64/include/QtGui/qglyphrun.h \
+		../../Qt/5.10.0/gcc_64/include/QtGui/qrawfont.h \
+		../../Qt/5.10.0/gcc_64/include/QtGui/qfontdatabase.h \
+		../../Qt/5.10.0/gcc_64/include/QtWidgets/QPushButton \
+		../../Qt/5.10.0/gcc_64/include/QtWidgets/qpushbutton.h \
+		../../Qt/5.10.0/gcc_64/include/QtWidgets/qabstractbutton.h \
+		../../Qt/5.10.0/gcc_64/include/QtWidgets/QScrollArea \
+		../../Qt/5.10.0/gcc_64/include/QtWidgets/qscrollarea.h \
 		../../Qt/5.10.0/gcc_64/include/QtWidgets/QStatusBar \
 		../../Qt/5.10.0/gcc_64/include/QtWidgets/qstatusbar.h \
+		../../Qt/5.10.0/gcc_64/include/QtWidgets/QTabWidget \
 		../../Qt/5.10.0/gcc_64/include/QtWidgets/QToolBar \
 		../../Qt/5.10.0/gcc_64/include/QtWidgets/qtoolbar.h \
 		../../Qt/5.10.0/gcc_64/include/QtWidgets/QWidget \
