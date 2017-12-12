@@ -14,6 +14,7 @@ stringstream ss;
 
 ColaAviones *Cola =new ColaAviones();
 ColaEscritorios *Escri = new ColaEscritorios();
+ColaPasajeros *pasajeros = new ColaPasajeros();
 int contador_Aviones=0;
 int Cantidad_Aviones=0;
 int Cantidad_Escritorios=0;
@@ -108,10 +109,11 @@ void MainWindow::on_pushButton_2_clicked()///Simulacion..
          }else if(i==26){
             letra="Z";
          }
-        Escri->Agregar_Cola_Escritorios(letra);
+        Escri->Agregar_Cola_Escritorios(letra,0);
 
 
     }
+
     Turnos();
 
 }
@@ -151,15 +153,20 @@ void MainWindow::Turnos(){
              }
 
     Graficar_Estructuras();
+
     }else{
         cout<<"Se Terminaron los Aviones..."<<endl;
     }
+
+
 }
 
 void MainWindow::on_pushButton_3_clicked()///TURNOS......
 {
     Turnos();
+    pasajeros->Verificar_Turnos_Pasajeros();
     Cola->Verificar_Turnos();
+    Escri->Mostrar_Cola_Escritorios();
     Graficar_Estructuras();
 }
 

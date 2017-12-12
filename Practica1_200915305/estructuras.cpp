@@ -27,6 +27,9 @@ typedef struct NodoEscritorio NodoES;
 NodoES *primeroES;
 NodoES *ultimoES;
 
+///************************PUNTEROS DE LA COLA SIMPLE*******************
+typedef struct NodoCola NodoC;
+
 
 ///***********************AGREGAR A LA COLA AVIONES****************************
 ///
@@ -105,6 +108,54 @@ void ColaPasajeros::Agregar_Cola_Pasajeros( int Avion, int Maletas, int Document
     }
 }
 
+///***********ELIMINAR DE LA COLA DE PASAJEROS*********************
+///
+void ColaPasajeros::Eliminar_Cola_Pasajeros(){
+    if(primeroPA!=ultimoPA){
+        newEscritorios->Cola(primeroPA);
+        cout<<"Agregando a Cola...."<<endl;
+        primeroPA=primeroPA->sig;
+
+    }else{
+        primeroPA=ultimoPA=NULL;
+        cout<<"La Cola de Pasajeros esta vacia..."<<endl;
+    }
+}
+
+///********VERIFICAR SI AI PASAJEROS PARA PASAR A LOS ESCRITORIOS*****
+///
+void ColaPasajeros::Verificar_Turnos_Pasajeros(){
+    int cantidad=0;
+    if(primeroES!=NULL){
+        if(primeroPA!=NULL){
+            NodoES *actual=primeroES;
+            while (actual!=NULL)
+            {
+
+                        int cant = actual->Cantidad;
+                        cout<<"Escritorio::::"<<actual->Escritorio<<endl;
+                        cout<<"Cantidad::::"<<actual->Cantidad<<endl;
+                        if(actual->Cantidad<10){
+                             cantidad= 10-cant;
+                             cout<<"Cantidad::::"<<actual->Cantidad<<endl;
+                            for(int i=1;i<=cantidad;i++){
+                                if(primeroPA!=NULL){
+                                Eliminar_Cola_Pasajeros();
+                                //actual->Cantidad=cantidad;
+                                }else{
+                                    break;
+                                }
+                            }
+
+                        }
+
+                        actual=actual->sig;
+
+            }
+        }
+    }
+}
+
 ///*********************DESABORDAJE DE LOS AVIONES*******************************
 ///
 void ColaAviones::Desabordaje(int Pasajeros, int Avion){
@@ -134,6 +185,10 @@ void ColaAviones::Verificar_Turnos(){
         }
     }
 }
+
+
+
+
 
 ///*********************GRAFICAR COLA PASAJEROS*********************************
 ///
@@ -244,6 +299,7 @@ void ColaAviones::Graficar_Cola_Aviones(){
 
        int b =0;
        int c =b+1;
+
        aux=primeroCA;
 
        while(aux->sig!=NULL){
@@ -292,10 +348,11 @@ void ColaAviones::Graficar_Cola_Aviones(){
 
 ///*******************COLA DOBLE DE LOS ESCRITORIOS************************
 
-void ColaEscritorios::Agregar_Cola_Escritorios(char *escritorio){
+void ColaEscritorios::Agregar_Cola_Escritorios(char *escritorio, int cantidad){
     NodoES *nuevo;
     nuevo=(NodoES*)malloc(sizeof(struct NodoEscritorio));
     nuevo->Escritorio=escritorio;
+    nuevo->Cantidad=cantidad;
     nuevo->ant=NULL;
     nuevo->sig=NULL;
 
@@ -305,12 +362,14 @@ void ColaEscritorios::Agregar_Cola_Escritorios(char *escritorio){
         primeroES=nuevo;
         ultimoES=nuevo;
         newEscritorios->contador++;
+        nuevo->primeroC=NULL;
     }else{
         nuevo->sig=NULL;
         nuevo->ant=ultimoES;
         ultimoES->sig=nuevo;
         ultimoES=nuevo;
         newEscritorios->contador++;
+        nuevo->primeroC=NULL;
 
 
     }
@@ -339,11 +398,6 @@ void ColaEscritorios::Ordenar(){
                 temp->Escritorio=temporal->Escritorio;
                 temp->Escritorio=aux->Escritorio;
 
-              /*  aux->Escritorio = temporal->Escritorio;
-                temporal->Escritorio=temp->Escritorio;
-                temp->Escritorio=aux->Escritorio;
-                */
-
              }
             printf("es menor\n");
             temporal=temporal->sig;
@@ -353,7 +407,77 @@ void ColaEscritorios::Ordenar(){
         temp=temp->sig;
     }
 
+}
 
+
+
+///************AGREGAR A COLAS DE LOS PASAJEROS EN LOS ESCRITORIOS******************
+///
+void ColaEscritorios::Cola(NodoColaPasajeros *Nuevo){
+    NodoC *nuevo;
+    nuevo=(NodoC*)malloc(sizeof(struct NodoCola));
+    nuevo->Avion=Nuevo->Avion;
+    nuevo->Documentos=Nuevo->Documentos;
+    nuevo->Maletas=Nuevo->Maletas;
+    nuevo->Turnos=Nuevo->Turnos;
+    nuevo->sig=NULL;
+
+
+    if(primeroES!=NULL){
+        NodoES *actual=primeroES;
+        while(actual!=NULL){//Recorrer la Lista de los Escritorios...
+
+            if(actual->Cantidad<10){ //Agregar a la Cola...
+                if(actual->primeroC==NULL){ // Agregar el Primer Nodo de la Cola...
+                    nuevo->sig=NULL;
+                    actual->primeroC=nuevo;
+                    actual->ultimoC=nuevo;
+                    cout<<"Agrego PRIMERO"<<endl;
+                    actual->Cantidad++;
+                    break;
+
+                 }else{
+                    //Agregar otro a la Cola...
+                    nuevo->sig=NULL;
+                    actual->ultimoC->sig=nuevo;
+                    actual->ultimoC=nuevo;
+                    cout<<"Agrego OTRO"<<endl;
+                    actual->Cantidad++;
+                    break;
+
+
+                }
+            }
+
+           actual=actual->sig;
+        }
+
+
+    }else{
+        cout<<"Lista de Escritoros esta vacia..."<<endl;
+    }
+}
+
+///*************MOSTRAR COLA DE LOS ESCRITORIOS********************
+///
+void ColaEscritorios::Mostrar_Cola_Escritorios(){
+
+     NodoES *tem=primeroES;
+     NodoC *actual;
+     while(tem!=NULL){
+         cout<<"Escritorio"<<tem->Escritorio<<endl;
+         actual=tem->primeroC;
+         if(actual!=NULL){
+             while(actual!=NULL){
+                 cout<<"pasajero...."<<actual->Avion<<endl;
+                 actual=actual->sig;
+             }
+         }else{
+             cout<<"las colas estan vacias..."<<endl;
+         }
+
+         tem=tem->sig;
+     }
 
 
 }
@@ -361,13 +485,15 @@ void ColaEscritorios::Ordenar(){
 
 
 
-
+///*************GRAFICAR COLA DE LOS ESCRITORIOS************************
+///
 void ColaEscritorios::Graficar_Cola_Escritorios(){
    if(primeroES!=NULL){
    fputs("\n subgraph cluster_2 {\n",gra);
    fputs("node [style=filled];\n",gra);
 
       int a=1;
+      int aa=1;
       NodoES *aux=primeroES;
       while(aux!=NULL){
           fputs("\"",gra);
@@ -377,14 +503,29 @@ void ColaEscritorios::Graficar_Cola_Escritorios(){
           fputs("\n[ ",gra);
           fprintf(gra, "label=\" " );
           fputs("Escritorio: ",gra);
-          fprintf(gra, "%d",a);
-          fputs(" &#92;n ",gra);
-          fputs("Avion: ",gra);
           fprintf(gra, "%s",aux->Escritorio);
-
           fputs("\"];\n",gra);
+                  NodoC *actual=aux->primeroC;
+                  while(actual!=NULL){
+                      fputs("\"",gra);
+                      fputs("nodoPas",gra);
+                      fprintf(gra,"%d",aa);
+                      fputs("\"",gra);
+                      fputs("\n[ ",gra);
+                      fprintf(gra, "label=\" " );
+                      fputs("Pasajero: ",gra);
+                      fprintf(gra, "%d",aa);
+                      fputs("\"];\n",gra);
+
+                      aa++;
+                      actual=actual->sig;
+                  }
+
+
+
+
           a++;
-              aux=aux->sig;
+          aux=aux->sig;
       }
 
       int b =1;
@@ -405,10 +546,13 @@ void ColaEscritorios::Graficar_Cola_Escritorios(){
           fputs( "\";\n",gra);
 
 
+
+
               aux=aux->sig;
               b++;
               c++;
       }
+
 
 
 
