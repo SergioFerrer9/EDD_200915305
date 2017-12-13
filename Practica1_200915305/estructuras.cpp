@@ -386,12 +386,10 @@ void ColaEscritorios::Ordenar(){
 
     cout<<"Contador....."<<newEscritorios->contador<<endl;
     for(int i=0; i<newEscritorios->contador; i++){
-        cout<<"FOR1....."<<endl;
         NodoES *temporal=temp->sig;
         for (int j=0; j<newEscritorios->contador-1; j++) {
             if(temporal!=NULL){
             if(strcmp(temporal->Escritorio,temp->Escritorio)<0){
-                printf("es mayor\n");
                 NodoES *aux;
                 aux->Escritorio=temporal->Escritorio;
                 temporal->Escritorio=temp->Escritorio;
@@ -399,7 +397,6 @@ void ColaEscritorios::Ordenar(){
                 temp->Escritorio=aux->Escritorio;
 
              }
-            printf("es menor\n");
             temporal=temporal->sig;
             }
 
@@ -493,7 +490,7 @@ void ColaEscritorios::Graficar_Cola_Escritorios(){
    fputs("node [style=filled];\n",gra);
 
       int a=1;
-      int aa=1;
+
       NodoES *aux=primeroES;
       while(aux!=NULL){
           fputs("\"",gra);
@@ -506,14 +503,16 @@ void ColaEscritorios::Graficar_Cola_Escritorios(){
           fprintf(gra, "%s",aux->Escritorio);
           fputs("\"];\n",gra);
                   NodoC *actual=aux->primeroC;
+                  int aa=1;
                   while(actual!=NULL){
                       fputs("\"",gra);
                       fputs("nodoPas",gra);
+                      fprintf(gra,"%s",aux->Escritorio);
                       fprintf(gra,"%d",aa);
                       fputs("\"",gra);
                       fputs("\n[ ",gra);
                       fprintf(gra, "label=\" " );
-                      fputs("Pasajero: ",gra);
+                      fprintf(gra,"%s",aux->Escritorio);
                       fprintf(gra, "%d",aa);
                       fputs("\"];\n",gra);
 
@@ -530,8 +529,10 @@ void ColaEscritorios::Graficar_Cola_Escritorios(){
 
       int b =1;
       int c =b+1;
-      aux=primeroES;
-      while(aux->sig!=NULL){
+
+      NodoES *aux2=primeroES;
+
+      while(aux2!=NULL){
           // nodo1---->nodo2 siguintes
           fputs("\"nodoEscritorio",gra);
           fprintf(gra,"%d",b);
@@ -544,13 +545,38 @@ void ColaEscritorios::Graficar_Cola_Escritorios(){
           fputs("\"-> \"nodoEscritorio",gra);
           fprintf(gra,"%d",b);
           fputs( "\";\n",gra);
+          int bb =1;
+          int cc =bb+1;
+                  NodoC *actual=aux2->primeroC;
+                  if(actual!=NULL){
+                         //Escritorio---->nodo1
+                          fputs("\"nodoEscritorio",gra);
+                          fprintf(gra,"%d",b);
+                          fputs("\"-> \"nodoPas",gra);
+                          fprintf(gra,"%s",aux2->Escritorio);
+                          fprintf(gra,"%d",bb);
+                      fputs( "\";\n",gra);
+                          while(actual!=NULL){
+                              // nodo1---->nodo2 siguintes
+                              fputs("\"nodoPas",gra);
+                              fprintf(gra,"%s",aux2->Escritorio);
+                              fprintf(gra,"%d",bb);
+                              fputs("\"-> \"nodoPas",gra);
+                              fprintf(gra,"%s",aux2->Escritorio);
+                              fprintf(gra,"%d",cc);
+                              fputs( "\";\n",gra);
+
+                                  actual=actual->sig;
+                                  bb++;
+                                  cc++;
+                          }
+
+                     }
 
 
-
-
-              aux=aux->sig;
               b++;
               c++;
+              aux2=aux2->sig;
       }
 
 
