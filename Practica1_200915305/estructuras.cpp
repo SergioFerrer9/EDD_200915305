@@ -30,6 +30,11 @@ NodoES *ultimoES;
 ///************************PUNTEROS DE LA COLA SIMPLE*******************
 typedef struct NodoCola NodoC;
 
+///************************PUNTEROS LISTA DOBLE CIRCULAR*******************
+typedef struct NodoMaleta NodoM;
+NodoM *primeroM;
+NodoM *ultimoM;
+
 
 ///***********************AGREGAR A LA COLA AVIONES****************************
 ///
@@ -111,15 +116,23 @@ void ColaPasajeros::Agregar_Cola_Pasajeros( int Avion, int Maletas, int Document
 ///***********ELIMINAR DE LA COLA DE PASAJEROS*********************
 ///
 void ColaPasajeros::Eliminar_Cola_Pasajeros(){
+    Maletas *maleta = new Maletas();
     if(primeroPA!=ultimoPA){
         newEscritorios->Cola(primeroPA);
+        for(int i=0;i<primeroPA->Maletas-1;i++){
+            maleta->Agregar_Maleta();
+         }
         cout<<"Agregando a Cola...."<<endl;
         primeroPA=primeroPA->sig;
 
     }else{
+       // maleta->Agregar_Maleta();
+
         primeroPA=ultimoPA=NULL;
         cout<<"La Cola de Pasajeros esta vacia..."<<endl;
     }
+
+    maleta->Graficar_Maleta();
 }
 
 ///********VERIFICAR SI AI PASAJEROS PARA PASAR A LOS ESCRITORIOS*****
@@ -514,6 +527,12 @@ void ColaEscritorios::Graficar_Cola_Escritorios(){
                       fprintf(gra, "label=\" " );
                       fprintf(gra,"%s",aux->Escritorio);
                       fprintf(gra, "%d",aa);
+                      fputs(" &#92;n ",gra);
+                      fputs("Turnos: ",gra);
+                      fprintf(gra, "%d",actual->Turnos);
+                      fputs(" &#92;n ",gra);
+                      fputs("Maletas: ",gra);
+                      fprintf(gra, "%d",actual->Maletas);
                       fputs("\"];\n",gra);
 
                       aa++;
@@ -592,9 +611,41 @@ void ColaEscritorios::Graficar_Cola_Escritorios(){
 
 }
 
+///*********************AGREGAR A LA LISTA CIRCULAR DE LAS MALETAS*************
+///
+void Maletas::Agregar_Maleta(){
+
+    NodoM *nuevo;
+    nuevo=(NodoM*)malloc(sizeof(struct NodoMaleta));
 
 
+    if(primeroM==NULL){
+        nuevo->sig=NULL;
+        nuevo->ant=NULL;
+        primeroM=nuevo;
+        ultimoM=nuevo;
+        cantidad++;
+    }else{
+        ultimoM->sig=nuevo;
+        nuevo->ant=ultimoM;
+        ultimoM=nuevo;
+        nuevo->sig=primeroM;
+        primeroM->ant=nuevo;
+        cantidad++;
 
+    }
+}
+
+///********************MOSTRAR LISTA DOBLE CIRCUAR*********************
+///
+void Maletas::Graficar_Maleta(){
+    NodoM *aux=primeroM;
+    if(aux!=NULL){
+        for(int i=0; i<=cantidad;i++){
+            cout<<"Maleta:"<<cantidad<<endl;
+        }
+    }
+}
 
 
 

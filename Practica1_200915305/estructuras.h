@@ -85,6 +85,27 @@ struct ColaEscritorios
     int contador=0;
 };
 
+///**************************ESTRUCTURA DE LA LISTA DOBLE CIRCULAR**************************
+///
+
+struct NodoMaleta
+{
+    int Maletas;
+    struct NodoMaleta *sig;
+    struct NodoMaleta *ant;
+};
+
+struct Maletas
+{
+    int cantidad=0;
+    void Agregar_Maleta();
+    void Eliminar_Maleta();
+    void Graficar_Maleta();
+};
+
+
+
+
 #endif // ESTRUCTURAS_H
 
 
