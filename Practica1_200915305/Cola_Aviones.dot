@@ -9,86 +9,23 @@ color="darkslateblue"
 style ="filled, bold"
 ];
 "nodoAvion0"
-[ label=" Avion: 3 &#92;n Tipo: Grande &#92;n Pasajeros: 34 &#92;n T_Desabordaje: 2 &#92;n T_Mantenimiento: 3"];
+[ label=" Avion: 5 &#92;n Tipo: Grande &#92;n Pasajeros: 36 &#92;n T_Desabordaje: 2 &#92;n T_Mantenimiento: 3"];
 "nodoAvion1"
-[ label=" Avion: 4 &#92;n Tipo: Pequeño &#92;n Pasajeros: 5 &#92;n T_Desabordaje: 1 &#92;n T_Mantenimiento: 3"];
+[ label=" Avion: 6 &#92;n Tipo: Mediano &#92;n Pasajeros: 17 &#92;n T_Desabordaje: 2 &#92;n T_Mantenimiento: 4"];
 "nodoAvion2"
-[ label=" Avion: 5 &#92;n Tipo: Grande &#92;n Pasajeros: 38 &#92;n T_Desabordaje: 3 &#92;n T_Mantenimiento: 5"];
+[ label=" Avion: 7 &#92;n Tipo: Grande &#92;n Pasajeros: 36 &#92;n T_Desabordaje: 3 &#92;n T_Mantenimiento: 3"];
+"nodoAvion3"
+[ label=" Avion: 8 &#92;n Tipo: Pequeño &#92;n Pasajeros: 9 &#92;n T_Desabordaje: 1 &#92;n T_Mantenimiento: 1"];
+"nodoAvion4"
+[ label=" Avion: 9 &#92;n Tipo: Mediano &#92;n Pasajeros: 16 &#92;n T_Desabordaje: 2 &#92;n T_Mantenimiento: 2"];
 "nodoAvion0"-> "nodoAvion1";
 "nodoAvion1"-> "nodoAvion0";
 "nodoAvion1"-> "nodoAvion2";
 "nodoAvion2"-> "nodoAvion1";
-
- subgraph cluster_1 {
-node [style=filled];
-"nodoPasajero1"
-[ label=" Pasajero: 1 &#92;n Avion: 2 &#92;n Turnos: 1 &#92;n Maletas: 4 &#92;n Doc: 4"];
-"nodoPasajero2"
-[ label=" Pasajero: 2 &#92;n Avion: 2 &#92;n Turnos: 2 &#92;n Maletas: 1 &#92;n Doc: 3"];
-"nodoPasajero3"
-[ label=" Pasajero: 3 &#92;n Avion: 2 &#92;n Turnos: 3 &#92;n Maletas: 4 &#92;n Doc: 8"];
-"nodoPasajero4"
-[ label=" Pasajero: 4 &#92;n Avion: 2 &#92;n Turnos: 3 &#92;n Maletas: 3 &#92;n Doc: 2"];
-"nodoPasajero5"
-[ label=" Pasajero: 5 &#92;n Avion: 2 &#92;n Turnos: 1 &#92;n Maletas: 2 &#92;n Doc: 4"];
-"nodoPasajero6"
-[ label=" Pasajero: 6 &#92;n Avion: 2 &#92;n Turnos: 1 &#92;n Maletas: 4 &#92;n Doc: 7"];
-"nodoPasajero7"
-[ label=" Pasajero: 7 &#92;n Avion: 2 &#92;n Turnos: 3 &#92;n Maletas: 3 &#92;n Doc: 3"];
-"nodoPasajero8"
-[ label=" Pasajero: 8 &#92;n Avion: 2 &#92;n Turnos: 1 &#92;n Maletas: 2 &#92;n Doc: 5"];
-"nodoPasajero9"
-[ label=" Pasajero: 9 &#92;n Avion: 2 &#92;n Turnos: 3 &#92;n Maletas: 2 &#92;n Doc: 8"];
-"nodoPasajero10"
-[ label=" Pasajero: 10 &#92;n Avion: 2 &#92;n Turnos: 2 &#92;n Maletas: 3 &#92;n Doc: 7"];
-"nodoPasajero11"
-[ label=" Pasajero: 11 &#92;n Avion: 2 &#92;n Turnos: 3 &#92;n Maletas: 2 &#92;n Doc: 10"];
-"nodoPasajero12"
-[ label=" Pasajero: 12 &#92;n Avion: 2 &#92;n Turnos: 1 &#92;n Maletas: 4 &#92;n Doc: 7"];
-"nodoPasajero13"
-[ label=" Pasajero: 13 &#92;n Avion: 2 &#92;n Turnos: 3 &#92;n Maletas: 3 &#92;n Doc: 8"];
-"nodoPasajero14"
-[ label=" Pasajero: 14 &#92;n Avion: 2 &#92;n Turnos: 1 &#92;n Maletas: 2 &#92;n Doc: 8"];
-"nodoPasajero15"
-[ label=" Pasajero: 15 &#92;n Avion: 2 &#92;n Turnos: 3 &#92;n Maletas: 3 &#92;n Doc: 1"];
-"nodoPasajero16"
-[ label=" Pasajero: 16 &#92;n Avion: 2 &#92;n Turnos: 1 &#92;n Maletas: 2 &#92;n Doc: 6"];
-"nodoPasajero17"
-[ label=" Pasajero: 17 &#92;n Avion: 2 &#92;n Turnos: 3 &#92;n Maletas: 1 &#92;n Doc: 8"];
-"nodoPasajero18"
-[ label=" Pasajero: 18 &#92;n Avion: 2 &#92;n Turnos: 2 &#92;n Maletas: 4 &#92;n Doc: 3"];
-"nodoPasajero19"
-[ label=" Pasajero: 19 &#92;n Avion: 2 &#92;n Turnos: 1 &#92;n Maletas: 1 &#92;n Doc: 6"];
-"nodoPasajero20"
-[ label=" Pasajero: 20 &#92;n Avion: 2 &#92;n Turnos: 2 &#92;n Maletas: 1 &#92;n Doc: 10"];
-"nodoPasajero21"
-[ label=" Pasajero: 21 &#92;n Avion: 2 &#92;n Turnos: 1 &#92;n Maletas: 3 &#92;n Doc: 10"];
-"nodoPasajero1"-> "nodoPasajero2";
-"nodoPasajero2"-> "nodoPasajero3";
-"nodoPasajero3"-> "nodoPasajero4";
-"nodoPasajero4"-> "nodoPasajero5";
-"nodoPasajero5"-> "nodoPasajero6";
-"nodoPasajero6"-> "nodoPasajero7";
-"nodoPasajero7"-> "nodoPasajero8";
-"nodoPasajero8"-> "nodoPasajero9";
-"nodoPasajero9"-> "nodoPasajero10";
-"nodoPasajero10"-> "nodoPasajero11";
-"nodoPasajero11"-> "nodoPasajero12";
-"nodoPasajero12"-> "nodoPasajero13";
-"nodoPasajero13"-> "nodoPasajero14";
-"nodoPasajero14"-> "nodoPasajero15";
-"nodoPasajero15"-> "nodoPasajero16";
-"nodoPasajero16"-> "nodoPasajero17";
-"nodoPasajero17"-> "nodoPasajero18";
-"nodoPasajero18"-> "nodoPasajero19";
-"nodoPasajero19"-> "nodoPasajero20";
-"nodoPasajero20"-> "nodoPasajero21";
-fontsize = "10"
-shape = "Mrecord"
-color="blue"
-style ="filled, bold"
-label ="Pasajeros"
-}
+"nodoAvion2"-> "nodoAvion3";
+"nodoAvion3"-> "nodoAvion2";
+"nodoAvion3"-> "nodoAvion4";
+"nodoAvion4"-> "nodoAvion3";
 
  subgraph cluster_2 {
 node [style=filled];
@@ -97,111 +34,143 @@ node [style=filled];
 "nodoPasC1"
 [ label=" C1 &#92;n Turnos: 2 &#92;n Maletas: 4"];
 "nodoPasC2"
-[ label=" C2 &#92;n Turnos: 1 &#92;n Maletas: 3"];
+[ label=" C2 &#92;n Turnos: 2 &#92;n Maletas: 4"];
 "nodoPasC3"
-[ label=" C3 &#92;n Turnos: 1 &#92;n Maletas: 2"];
+[ label=" C3 &#92;n Turnos: 2 &#92;n Maletas: 4"];
 "nodoPasC4"
-[ label=" C4 &#92;n Turnos: 1 &#92;n Maletas: 1"];
+[ label=" C4 &#92;n Turnos: 3 &#92;n Maletas: 4"];
 "nodoPasC5"
-[ label=" C5 &#92;n Turnos: 1 &#92;n Maletas: 2"];
+[ label=" C5 &#92;n Turnos: 3 &#92;n Maletas: 2"];
 "nodoPasC6"
 [ label=" C6 &#92;n Turnos: 2 &#92;n Maletas: 3"];
 "nodoPasC7"
-[ label=" C7 &#92;n Turnos: 3 &#92;n Maletas: 1"];
+[ label=" C7 &#92;n Turnos: 1 &#92;n Maletas: 1"];
 "nodoPasC8"
-[ label=" C8 &#92;n Turnos: 2 &#92;n Maletas: 1"];
+[ label=" C8 &#92;n Turnos: 2 &#92;n Maletas: 2"];
 "nodoPasC9"
-[ label=" C9 &#92;n Turnos: 3 &#92;n Maletas: 3"];
+[ label=" C9 &#92;n Turnos: 2 &#92;n Maletas: 2"];
 "nodoPasC10"
-[ label=" C10 &#92;n Turnos: 2 &#92;n Maletas: 1"];
+[ label=" C10 &#92;n Turnos: 3 &#92;n Maletas: 3"];
 "nodoEscritorio2"
 [ label=" Escritorio: D"];
 "nodoPasD1"
-[ label=" D1 &#92;n Turnos: 3 &#92;n Maletas: 4"];
+[ label=" D1 &#92;n Turnos: 1 &#92;n Maletas: 3"];
 "nodoPasD2"
-[ label=" D2 &#92;n Turnos: 1 &#92;n Maletas: 2"];
+[ label=" D2 &#92;n Turnos: 2 &#92;n Maletas: 2"];
 "nodoPasD3"
-[ label=" D3 &#92;n Turnos: 3 &#92;n Maletas: 3"];
+[ label=" D3 &#92;n Turnos: 2 &#92;n Maletas: 1"];
 "nodoPasD4"
-[ label=" D4 &#92;n Turnos: 1 &#92;n Maletas: 3"];
+[ label=" D4 &#92;n Turnos: 3 &#92;n Maletas: 2"];
 "nodoPasD5"
-[ label=" D5 &#92;n Turnos: 2 &#92;n Maletas: 2"];
+[ label=" D5 &#92;n Turnos: 1 &#92;n Maletas: 3"];
 "nodoPasD6"
-[ label=" D6 &#92;n Turnos: 2 &#92;n Maletas: 1"];
+[ label=" D6 &#92;n Turnos: 3 &#92;n Maletas: 1"];
 "nodoPasD7"
-[ label=" D7 &#92;n Turnos: 1 &#92;n Maletas: 3"];
+[ label=" D7 &#92;n Turnos: 1 &#92;n Maletas: 2"];
 "nodoPasD8"
 [ label=" D8 &#92;n Turnos: 2 &#92;n Maletas: 4"];
 "nodoPasD9"
-[ label=" D9 &#92;n Turnos: 2 &#92;n Maletas: 3"];
+[ label=" D9 &#92;n Turnos: 3 &#92;n Maletas: 1"];
 "nodoPasD10"
-[ label=" D10 &#92;n Turnos: 2 &#92;n Maletas: 3"];
+[ label=" D10 &#92;n Turnos: 2 &#92;n Maletas: 1"];
 "nodoEscritorio3"
 [ label=" Escritorio: E"];
 "nodoPasE1"
-[ label=" E1 &#92;n Turnos: 3 &#92;n Maletas: 1"];
+[ label=" E1 &#92;n Turnos: 2 &#92;n Maletas: 2"];
 "nodoPasE2"
-[ label=" E2 &#92;n Turnos: 3 &#92;n Maletas: 3"];
+[ label=" E2 &#92;n Turnos: 3 &#92;n Maletas: 2"];
 "nodoPasE3"
-[ label=" E3 &#92;n Turnos: 3 &#92;n Maletas: 1"];
+[ label=" E3 &#92;n Turnos: 2 &#92;n Maletas: 2"];
 "nodoPasE4"
-[ label=" E4 &#92;n Turnos: 2 &#92;n Maletas: 3"];
+[ label=" E4 &#92;n Turnos: 1 &#92;n Maletas: 1"];
 "nodoPasE5"
-[ label=" E5 &#92;n Turnos: 2 &#92;n Maletas: 4"];
+[ label=" E5 &#92;n Turnos: 2 &#92;n Maletas: 1"];
 "nodoPasE6"
-[ label=" E6 &#92;n Turnos: 2 &#92;n Maletas: 4"];
+[ label=" E6 &#92;n Turnos: 1 &#92;n Maletas: 2"];
 "nodoPasE7"
-[ label=" E7 &#92;n Turnos: 3 &#92;n Maletas: 4"];
+[ label=" E7 &#92;n Turnos: 2 &#92;n Maletas: 1"];
 "nodoPasE8"
-[ label=" E8 &#92;n Turnos: 1 &#92;n Maletas: 2"];
+[ label=" E8 &#92;n Turnos: 1 &#92;n Maletas: 3"];
 "nodoPasE9"
-[ label=" E9 &#92;n Turnos: 3 &#92;n Maletas: 2"];
+[ label=" E9 &#92;n Turnos: 2 &#92;n Maletas: 1"];
 "nodoPasE10"
-[ label=" E10 &#92;n Turnos: 1 &#92;n Maletas: 4"];
+[ label=" E10 &#92;n Turnos: 2 &#92;n Maletas: 2"];
 "nodoEscritorio4"
-[ label=" Escritorio: X"];
-"nodoPasX1"
-[ label=" X1 &#92;n Turnos: 2 &#92;n Maletas: 3"];
-"nodoPasX2"
-[ label=" X2 &#92;n Turnos: 2 &#92;n Maletas: 2"];
-"nodoPasX3"
-[ label=" X3 &#92;n Turnos: 1 &#92;n Maletas: 4"];
-"nodoPasX4"
-[ label=" X4 &#92;n Turnos: 3 &#92;n Maletas: 1"];
-"nodoPasX5"
-[ label=" X5 &#92;n Turnos: 2 &#92;n Maletas: 1"];
-"nodoPasX6"
-[ label=" X6 &#92;n Turnos: 2 &#92;n Maletas: 2"];
-"nodoPasX7"
-[ label=" X7 &#92;n Turnos: 3 &#92;n Maletas: 2"];
-"nodoPasX8"
-[ label=" X8 &#92;n Turnos: 1 &#92;n Maletas: 3"];
-"nodoPasX9"
-[ label=" X9 &#92;n Turnos: 2 &#92;n Maletas: 1"];
-"nodoPasX10"
-[ label=" X10 &#92;n Turnos: 1 &#92;n Maletas: 4"];
+[ label=" Escritorio: F"];
+"nodoPasF1"
+[ label=" F1 &#92;n Turnos: 1 &#92;n Maletas: 2"];
+"nodoPasF2"
+[ label=" F2 &#92;n Turnos: 2 &#92;n Maletas: 3"];
+"nodoPasF3"
+[ label=" F3 &#92;n Turnos: 2 &#92;n Maletas: 4"];
+"nodoPasF4"
+[ label=" F4 &#92;n Turnos: 1 &#92;n Maletas: 4"];
+"nodoPasF5"
+[ label=" F5 &#92;n Turnos: 1 &#92;n Maletas: 3"];
+"nodoPasF6"
+[ label=" F6 &#92;n Turnos: 1 &#92;n Maletas: 4"];
+"nodoPasF7"
+[ label=" F7 &#92;n Turnos: 2 &#92;n Maletas: 3"];
+"nodoPasF8"
+[ label=" F8 &#92;n Turnos: 2 &#92;n Maletas: 2"];
+"nodoPasF9"
+[ label=" F9 &#92;n Turnos: 3 &#92;n Maletas: 1"];
+"nodoPasF10"
+[ label=" F10 &#92;n Turnos: 2 &#92;n Maletas: 2"];
 "nodoEscritorio5"
+[ label=" Escritorio: G"];
+"nodoPasG1"
+[ label=" G1 &#92;n Turnos: 2 &#92;n Maletas: 2"];
+"nodoPasG2"
+[ label=" G2 &#92;n Turnos: 2 &#92;n Maletas: 1"];
+"nodoPasG3"
+[ label=" G3 &#92;n Turnos: 2 &#92;n Maletas: 3"];
+"nodoPasG4"
+[ label=" G4 &#92;n Turnos: 2 &#92;n Maletas: 4"];
+"nodoPasG5"
+[ label=" G5 &#92;n Turnos: 3 &#92;n Maletas: 4"];
+"nodoPasG6"
+[ label=" G6 &#92;n Turnos: 1 &#92;n Maletas: 1"];
+"nodoPasG7"
+[ label=" G7 &#92;n Turnos: 2 &#92;n Maletas: 1"];
+"nodoPasG8"
+[ label=" G8 &#92;n Turnos: 3 &#92;n Maletas: 1"];
+"nodoPasG9"
+[ label=" G9 &#92;n Turnos: 1 &#92;n Maletas: 3"];
+"nodoPasG10"
+[ label=" G10 &#92;n Turnos: 2 &#92;n Maletas: 1"];
+"nodoEscritorio6"
+[ label=" Escritorio: H"];
+"nodoPasH1"
+[ label=" H1 &#92;n Turnos: 3 &#92;n Maletas: 2"];
+"nodoPasH2"
+[ label=" H2 &#92;n Turnos: 3 &#92;n Maletas: 3"];
+"nodoPasH3"
+[ label=" H3 &#92;n Turnos: 2 &#92;n Maletas: 2"];
+"nodoPasH4"
+[ label=" H4 &#92;n Turnos: 2 &#92;n Maletas: 3"];
+"nodoPasH5"
+[ label=" H5 &#92;n Turnos: 3 &#92;n Maletas: 1"];
+"nodoPasH6"
+[ label=" H6 &#92;n Turnos: 2 &#92;n Maletas: 1"];
+"nodoEscritorio7"
+[ label=" Escritorio: I"];
+"nodoEscritorio8"
+[ label=" Escritorio: J"];
+"nodoEscritorio9"
+[ label=" Escritorio: K"];
+"nodoEscritorio10"
+[ label=" Escritorio: L"];
+"nodoEscritorio11"
+[ label=" Escritorio: M"];
+"nodoEscritorio12"
+[ label=" Escritorio: N"];
+"nodoEscritorio13"
+[ label=" Escritorio: O"];
+"nodoEscritorio14"
+[ label=" Escritorio: X"];
+"nodoEscritorio15"
 [ label=" Escritorio: Z"];
-"nodoPasZ1"
-[ label=" Z1 &#92;n Turnos: 2 &#92;n Maletas: 2"];
-"nodoPasZ2"
-[ label=" Z2 &#92;n Turnos: 3 &#92;n Maletas: 2"];
-"nodoPasZ3"
-[ label=" Z3 &#92;n Turnos: 2 &#92;n Maletas: 2"];
-"nodoPasZ4"
-[ label=" Z4 &#92;n Turnos: 2 &#92;n Maletas: 4"];
-"nodoPasZ5"
-[ label=" Z5 &#92;n Turnos: 2 &#92;n Maletas: 3"];
-"nodoPasZ6"
-[ label=" Z6 &#92;n Turnos: 1 &#92;n Maletas: 4"];
-"nodoPasZ7"
-[ label=" Z7 &#92;n Turnos: 2 &#92;n Maletas: 1"];
-"nodoPasZ8"
-[ label=" Z8 &#92;n Turnos: 3 &#92;n Maletas: 3"];
-"nodoPasZ9"
-[ label=" Z9 &#92;n Turnos: 3 &#92;n Maletas: 4"];
-"nodoPasZ10"
-[ label=" Z10 &#92;n Turnos: 2 &#92;n Maletas: 4"];
 "nodoEscritorio1"-> "nodoEscritorio2";
 "nodoEscritorio2"-> "nodoEscritorio1";
 "nodoEscritorio1"-> "nodoPasC1";
@@ -214,7 +183,6 @@ node [style=filled];
 "nodoPasC7"-> "nodoPasC8";
 "nodoPasC8"-> "nodoPasC9";
 "nodoPasC9"-> "nodoPasC10";
-"nodoPasC10"-> "nodoPasC11";
 "nodoEscritorio2"-> "nodoEscritorio3";
 "nodoEscritorio3"-> "nodoEscritorio2";
 "nodoEscritorio2"-> "nodoPasD1";
@@ -227,7 +195,6 @@ node [style=filled];
 "nodoPasD7"-> "nodoPasD8";
 "nodoPasD8"-> "nodoPasD9";
 "nodoPasD9"-> "nodoPasD10";
-"nodoPasD10"-> "nodoPasD11";
 "nodoEscritorio3"-> "nodoEscritorio4";
 "nodoEscritorio4"-> "nodoEscritorio3";
 "nodoEscritorio3"-> "nodoPasE1";
@@ -240,38 +207,112 @@ node [style=filled];
 "nodoPasE7"-> "nodoPasE8";
 "nodoPasE8"-> "nodoPasE9";
 "nodoPasE9"-> "nodoPasE10";
-"nodoPasE10"-> "nodoPasE11";
 "nodoEscritorio4"-> "nodoEscritorio5";
 "nodoEscritorio5"-> "nodoEscritorio4";
-"nodoEscritorio4"-> "nodoPasX1";
-"nodoPasX1"-> "nodoPasX2";
-"nodoPasX2"-> "nodoPasX3";
-"nodoPasX3"-> "nodoPasX4";
-"nodoPasX4"-> "nodoPasX5";
-"nodoPasX5"-> "nodoPasX6";
-"nodoPasX6"-> "nodoPasX7";
-"nodoPasX7"-> "nodoPasX8";
-"nodoPasX8"-> "nodoPasX9";
-"nodoPasX9"-> "nodoPasX10";
-"nodoPasX10"-> "nodoPasX11";
+"nodoEscritorio4"-> "nodoPasF1";
+"nodoPasF1"-> "nodoPasF2";
+"nodoPasF2"-> "nodoPasF3";
+"nodoPasF3"-> "nodoPasF4";
+"nodoPasF4"-> "nodoPasF5";
+"nodoPasF5"-> "nodoPasF6";
+"nodoPasF6"-> "nodoPasF7";
+"nodoPasF7"-> "nodoPasF8";
+"nodoPasF8"-> "nodoPasF9";
+"nodoPasF9"-> "nodoPasF10";
 "nodoEscritorio5"-> "nodoEscritorio6";
 "nodoEscritorio6"-> "nodoEscritorio5";
-"nodoEscritorio5"-> "nodoPasZ1";
-"nodoPasZ1"-> "nodoPasZ2";
-"nodoPasZ2"-> "nodoPasZ3";
-"nodoPasZ3"-> "nodoPasZ4";
-"nodoPasZ4"-> "nodoPasZ5";
-"nodoPasZ5"-> "nodoPasZ6";
-"nodoPasZ6"-> "nodoPasZ7";
-"nodoPasZ7"-> "nodoPasZ8";
-"nodoPasZ8"-> "nodoPasZ9";
-"nodoPasZ9"-> "nodoPasZ10";
-"nodoPasZ10"-> "nodoPasZ11";
+"nodoEscritorio5"-> "nodoPasG1";
+"nodoPasG1"-> "nodoPasG2";
+"nodoPasG2"-> "nodoPasG3";
+"nodoPasG3"-> "nodoPasG4";
+"nodoPasG4"-> "nodoPasG5";
+"nodoPasG5"-> "nodoPasG6";
+"nodoPasG6"-> "nodoPasG7";
+"nodoPasG7"-> "nodoPasG8";
+"nodoPasG8"-> "nodoPasG9";
+"nodoPasG9"-> "nodoPasG10";
+"nodoEscritorio6"-> "nodoEscritorio7";
+"nodoEscritorio7"-> "nodoEscritorio6";
+"nodoEscritorio6"-> "nodoPasH1";
+"nodoPasH1"-> "nodoPasH2";
+"nodoPasH2"-> "nodoPasH3";
+"nodoPasH3"-> "nodoPasH4";
+"nodoPasH4"-> "nodoPasH5";
+"nodoPasH5"-> "nodoPasH6";
+"nodoEscritorio7"-> "nodoEscritorio8";
+"nodoEscritorio8"-> "nodoEscritorio7";
+"nodoEscritorio8"-> "nodoEscritorio9";
+"nodoEscritorio9"-> "nodoEscritorio8";
+"nodoEscritorio9"-> "nodoEscritorio10";
+"nodoEscritorio10"-> "nodoEscritorio9";
+"nodoEscritorio10"-> "nodoEscritorio11";
+"nodoEscritorio11"-> "nodoEscritorio10";
+"nodoEscritorio11"-> "nodoEscritorio12";
+"nodoEscritorio12"-> "nodoEscritorio11";
+"nodoEscritorio12"-> "nodoEscritorio13";
+"nodoEscritorio13"-> "nodoEscritorio12";
+"nodoEscritorio13"-> "nodoEscritorio14";
+"nodoEscritorio14"-> "nodoEscritorio13";
+"nodoEscritorio14"-> "nodoEscritorio15";
+"nodoEscritorio15"-> "nodoEscritorio14";
 fontsize = "10"
 shape = "Mrecord"
 color="cyan4"
 style ="filled, bold"
 label ="Escritorios"
+}
+
+ subgraph cluster_4 {
+node [style=filled];
+"nodoEstacion1"
+[ label=" Estacion: 1 &#92;n Avion: 0 &#92;n Turnos: 0 &#92;n "];
+"nodoEstacion2"
+[ label=" Estacion: 2 &#92;n Avion: 0 &#92;n Turnos: 0 &#92;n "];
+"nodoEstacion3"
+[ label=" Estacion: 3 &#92;n Avion: 0 &#92;n Turnos: 0 &#92;n "];
+"nodoEstacion4"
+[ label=" Estacion: 4 &#92;n Avion: 0 &#92;n Turnos: 0 &#92;n "];
+"nodoEstacion5"
+[ label=" Estacion: 5 &#92;n Avion: 0 &#92;n Turnos: 0 &#92;n "];
+"nodoEstacion6"
+[ label=" Estacion: 6 &#92;n Avion: 0 &#92;n Turnos: 0 &#92;n "];
+"nodoEstacion7"
+[ label=" Estacion: 7 &#92;n Avion: 0 &#92;n Turnos: 0 &#92;n "];
+"nodoEstacion8"
+[ label=" Estacion: 8 &#92;n Avion: 0 &#92;n Turnos: 0 &#92;n "];
+"nodoEstacion9"
+[ label=" Estacion: 9 &#92;n Avion: 0 &#92;n Turnos: 0 &#92;n "];
+"nodoEstacion10"
+[ label=" Estacion: 10 &#92;n Avion: 0 &#92;n Turnos: 0 &#92;n "];
+"nodoEstacion11"
+[ label=" Estacion: 11 &#92;n Avion: 0 &#92;n Turnos: 0 &#92;n "];
+"nodoEstacion12"
+[ label=" Estacion: 12 &#92;n Avion: 0 &#92;n Turnos: 0 &#92;n "];
+"nodoEstacion13"
+[ label=" Estacion: 13 &#92;n Avion: 0 &#92;n Turnos: 0 &#92;n "];
+"nodoEstacion14"
+[ label=" Estacion: 14 &#92;n Avion: 0 &#92;n Turnos: 0 &#92;n "];
+"nodoEstacion15"
+[ label=" Estacion: 15 &#92;n Avion: 0 &#92;n Turnos: 0 &#92;n "];
+"nodoEstacion1"-> "nodoEstacion2";
+"nodoEstacion2"-> "nodoEstacion3";
+"nodoEstacion3"-> "nodoEstacion4";
+"nodoEstacion4"-> "nodoEstacion5";
+"nodoEstacion5"-> "nodoEstacion6";
+"nodoEstacion6"-> "nodoEstacion7";
+"nodoEstacion7"-> "nodoEstacion8";
+"nodoEstacion8"-> "nodoEstacion9";
+"nodoEstacion9"-> "nodoEstacion10";
+"nodoEstacion10"-> "nodoEstacion11";
+"nodoEstacion11"-> "nodoEstacion12";
+"nodoEstacion12"-> "nodoEstacion13";
+"nodoEstacion13"-> "nodoEstacion14";
+"nodoEstacion14"-> "nodoEstacion15";
+fontsize = "10"
+shape = "Mrecord"
+color="green"
+style ="filled, bold"
+label ="Estaciones"
 }
 
  subgraph cluster_3 {
@@ -536,6 +577,8 @@ node [style=filled];
 [ label=" Maleta: 128"];
 "nodoM129"
 [ label=" Maleta: 129"];
+"nodoM130"
+[ label=" Maleta: 130"];
 "nodoM0"-> "nodoM1";
 "nodoM1"-> "nodoM0";
 "nodoM1"-> "nodoM2";
@@ -794,8 +837,10 @@ node [style=filled];
 "nodoM128"-> "nodoM127";
 "nodoM128"-> "nodoM129";
 "nodoM129"-> "nodoM128";
-"nodoM129"-> "nodoM0";
-"nodoM0"-> "nodoM129";
+"nodoM129"-> "nodoM130";
+"nodoM130"-> "nodoM129";
+"nodoM130"-> "nodoM0";
+"nodoM0"-> "nodoM130";
 fontsize = "10"
 shape = "Mrecord"
 color="orange"

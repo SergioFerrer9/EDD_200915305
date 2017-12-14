@@ -15,6 +15,7 @@ stringstream ss;
 ColaAviones *Cola =new ColaAviones();
 ColaEscritorios *Escri = new ColaEscritorios();
 ColaPasajeros *pasajeros = new ColaPasajeros();
+Estacion *estaciones = new Estacion();
 int contador_Aviones=0;
 int Cantidad_Aviones=0;
 int Cantidad_Escritorios=0;
@@ -112,6 +113,10 @@ void MainWindow::on_pushButton_2_clicked()///Simulacion..
         Escri->Agregar_Cola_Escritorios(letra,0);
 
 
+    }
+
+    for(int i=1;i<=Cantidad_Mantenimiento;i++){
+        estaciones->Agregar_Estacion(i,0,0);
     }
 
     Turnos();

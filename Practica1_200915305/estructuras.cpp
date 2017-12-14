@@ -10,6 +10,8 @@ ColaPasajeros *newPasajeros = new ColaPasajeros();
 ColaEscritorios *newEscritorios = new ColaEscritorios();
 NodoEscritorio *NodoEcritorio_ = new NodoEscritorio();
 Maletas *newMaletas = new Maletas();
+Estacion *newEstaciones = new Estacion();
+ColaMantenimiento *newMantenimiento = new ColaMantenimiento();
 
 FILE *gra;
 
@@ -35,6 +37,18 @@ typedef struct NodoCola NodoC;
 typedef struct NodoMaleta NodoM;
 NodoM *primeroM;
 NodoM *ultimoM;
+
+///************************PUNTEROS COLA SIMPLE DE LOS AVIONES*******************
+typedef struct NodoEstacion NodoE;
+NodoE *primeroE;
+NodoE *ultimoE;
+
+
+///************************PUNTEROS COLA SIMPLE DE LOS AVIONES*******************
+typedef struct NodoColaMantenimiento NodoCM;
+NodoCM *primeroCM;
+NodoCM *ultimoCM;
+
 
 
 ///***********************AGREGAR A LA COLA AVIONES****************************
@@ -352,6 +366,7 @@ void ColaAviones::Graficar_Cola_Aviones(){
     }
     newPasajeros->Graficar_Cola_Pasajeros();
     newEscritorios->Graficar_Cola_Escritorios();
+    newEstaciones->Graficar_Estacion();
     newMaletas->Graficar_Maleta();
 
 
@@ -555,7 +570,7 @@ void ColaEscritorios::Graficar_Cola_Escritorios(){
 
       NodoES *aux2=primeroES;
 
-      while(aux2!=NULL){
+      while(aux2->sig!=NULL){
           // nodo1---->nodo2 siguintes
           fputs("\"nodoEscritorio",gra);
           fprintf(gra,"%d",b);
@@ -578,8 +593,8 @@ void ColaEscritorios::Graficar_Cola_Escritorios(){
                           fputs("\"-> \"nodoPas",gra);
                           fprintf(gra,"%s",aux2->Escritorio);
                           fprintf(gra,"%d",bb);
-                      fputs( "\";\n",gra);
-                          while(actual!=NULL){
+                          fputs( "\";\n",gra);
+                          while(actual->sig!=NULL){
                               // nodo1---->nodo2 siguintes
                               fputs("\"nodoPas",gra);
                               fprintf(gra,"%s",aux2->Escritorio);
@@ -709,10 +724,109 @@ void Maletas::Graficar_Maleta(){
 }
 }
 
+///******************ESTRUCTURA DEL MANTENIMIENTO DE LOS AVIONES**************************
+///
+///******************LISTA DE LAS ESTACIONES DE MANTENIMIENTO*****************************
+///
+void Estacion::Agregar_Estacion(int estacion, int avion, int turnos){
+    NodoE *nuevo;
+    nuevo=(NodoE*)malloc(sizeof(struct NodoEstacion));
+    nuevo->Estacion=estacion;
+    nuevo->Avion=avion;
+    nuevo->Turnos=turnos;
+
+    if(primeroE==NULL){
+        nuevo->sig=NULL;
+        primeroE=nuevo;
+        ultimoE=nuevo;
+    }else{
+        nuevo->sig=NULL;
+        ultimoE->sig=nuevo;
+        ultimoE=nuevo;
+    }
+}
+
+void Estacion::Graficar_Estacion(){
+   if(primeroE!=NULL){
+   fputs("\n subgraph cluster_4 {\n",gra);
+   fputs("node [style=filled];\n",gra);
+
+      int a=1;
+      NodoE *aux=primeroE;
+      while(aux!=NULL){
+          fputs("\"",gra);
+          fputs("nodoEstacion",gra);
+          fprintf(gra,"%d",a);
+          fputs("\"",gra);
+          fputs("\n[ ",gra);
+          fprintf(gra, "label=\" " );
+          fputs("Estacion: ",gra);
+          fprintf(gra, "%d",a);
+          fputs(" &#92;n ",gra);
+          fputs("Avion: ",gra);
+          fprintf(gra, "%d",aux->Avion);
+          fputs(" &#92;n ",gra);
+          fputs("Turnos: ",gra);
+          fprintf(gra, "%d",aux->Turnos);
+          fputs(" &#92;n ",gra);
+          fputs("\"];\n",gra);
+          a++;
+              aux=aux->sig;
+      }
+
+      int b =1;
+      int c =b+1;
+      aux=primeroE;
+      while(aux->sig!=NULL){
+          // nodo1---->nodo2 siguintes
+          fputs("\"nodoEstacion",gra);
+          fprintf(gra,"%d",b);
+          fputs("\"-> \"nodoEstacion",gra);
+          fprintf(gra,"%d",c);
+          fputs( "\";\n",gra);
 
 
+              aux=aux->sig;
+              b++;
+              c++;
+      }
 
 
+   fputs("fontsize = \"10\"\n",gra);
+   fputs("shape = \"Mrecord\"\n",gra);
+   fputs("color=\"green\"\n",gra);
+   fputs("style =\"filled, bold\"\n",gra);
+   fputs("label =\"Estaciones\"\n",gra);
+   fputs("}\n",gra);
+}
+}
+
+///******************COLA SIMPLE DE LOS AVIONES*******************************************
+///
+void ColaMantenimiento::Agregar_Cola_Mantenimiento(NodoColaAviones *Nuevo){
+    NodoCM *nuevo;
+    nuevo=(NodoCM*)malloc(sizeof(struct NodoColaMantenimiento));
+    nuevo->Avion=Nuevo->Avion;
+    nuevo->Estado="VACIO";
+    nuevo->Turnos=Nuevo->Turno_Mantenimiento;
+
+    if(primeroCM==NULL){
+        nuevo->sig=NULL;
+        primeroCM=nuevo;
+        ultimoCM=nuevo;
+    }else{
+        nuevo->sig=NULL;
+        ultimoCM->sig=nuevo;
+        ultimoCM=nuevo;
+    }
+
+}
+
+////*****************GRAFICAR COLA DE MANTENIMIENTO*****************************************
+///
+void ColaMantenimiento::Graficar_Cola_Mantenimiento(){
+
+}
 
 
 

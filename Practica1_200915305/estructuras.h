@@ -69,7 +69,6 @@ struct NodoEscritorio
     int Cantidad;
     struct NodoEscritorio *sig;
     struct NodoEscritorio *ant;
-    struct NodoCola *enlace;
     struct NodoCola *primeroC;
     struct NodoCola *ultimoC;
 
@@ -103,8 +102,46 @@ struct Maletas
     void Graficar_Maleta();
 };
 
+///*************************ESTRUCTURA DEL MANTENIMIENTO DE LOS AVIONES***********************
+///
 
 
+struct NodoMantenimiento
+{
+    int Avion;
+    struct NodoAvion *sig;
+};
+
+struct NodoEstacion
+{
+    int Estacion;
+    int Avion;
+    int Turnos;
+    NodoEstacion *sig;
+    NodoMantenimiento *primeroMA;
+};
+
+struct Estacion
+{
+    void Agregar_Estacion(int estacion, int avion, int turnos);
+    void Eliminar_Estacion();
+    void Graficar_Estacion();
+};
+
+struct NodoColaMantenimiento
+{
+    int Avion;
+    char *Estado;
+    int Turnos;
+    struct NodoColaMantenimiento *sig;
+};
+
+struct ColaMantenimiento
+{
+    void Agregar_Cola_Mantenimiento(NodoColaAviones *Nuevo);
+    void Eliminer_Cola_Mantenimiento();
+    void Graficar_Cola_Mantenimiento();
+};
 
 #endif // ESTRUCTURAS_H
 
