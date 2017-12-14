@@ -8,253 +8,21 @@ shape = "Mrecord"
 color="darkslateblue"
 style ="filled, bold"
 ];
-"nodoAvion0"
-[ label=" Avion: 5 &#92;n Tipo: Grande &#92;n Pasajeros: 36 &#92;n T_Desabordaje: 2 &#92;n T_Mantenimiento: 3"];
-"nodoAvion1"
-[ label=" Avion: 6 &#92;n Tipo: Mediano &#92;n Pasajeros: 17 &#92;n T_Desabordaje: 2 &#92;n T_Mantenimiento: 4"];
-"nodoAvion2"
-[ label=" Avion: 7 &#92;n Tipo: Grande &#92;n Pasajeros: 36 &#92;n T_Desabordaje: 3 &#92;n T_Mantenimiento: 3"];
-"nodoAvion3"
-[ label=" Avion: 8 &#92;n Tipo: Pequeño &#92;n Pasajeros: 9 &#92;n T_Desabordaje: 1 &#92;n T_Mantenimiento: 1"];
-"nodoAvion4"
-[ label=" Avion: 9 &#92;n Tipo: Mediano &#92;n Pasajeros: 16 &#92;n T_Desabordaje: 2 &#92;n T_Mantenimiento: 2"];
-"nodoAvion0"-> "nodoAvion1";
-"nodoAvion1"-> "nodoAvion0";
-"nodoAvion1"-> "nodoAvion2";
-"nodoAvion2"-> "nodoAvion1";
-"nodoAvion2"-> "nodoAvion3";
-"nodoAvion3"-> "nodoAvion2";
-"nodoAvion3"-> "nodoAvion4";
-"nodoAvion4"-> "nodoAvion3";
 
  subgraph cluster_2 {
 node [style=filled];
 "nodoEscritorio1"
 [ label=" Escritorio: C"];
-"nodoPasC1"
-[ label=" C1 &#92;n Turnos: 2 &#92;n Maletas: 4"];
-"nodoPasC2"
-[ label=" C2 &#92;n Turnos: 2 &#92;n Maletas: 4"];
-"nodoPasC3"
-[ label=" C3 &#92;n Turnos: 2 &#92;n Maletas: 4"];
-"nodoPasC4"
-[ label=" C4 &#92;n Turnos: 3 &#92;n Maletas: 4"];
-"nodoPasC5"
-[ label=" C5 &#92;n Turnos: 3 &#92;n Maletas: 2"];
-"nodoPasC6"
-[ label=" C6 &#92;n Turnos: 2 &#92;n Maletas: 3"];
-"nodoPasC7"
-[ label=" C7 &#92;n Turnos: 1 &#92;n Maletas: 1"];
-"nodoPasC8"
-[ label=" C8 &#92;n Turnos: 2 &#92;n Maletas: 2"];
-"nodoPasC9"
-[ label=" C9 &#92;n Turnos: 2 &#92;n Maletas: 2"];
-"nodoPasC10"
-[ label=" C10 &#92;n Turnos: 3 &#92;n Maletas: 3"];
 "nodoEscritorio2"
-[ label=" Escritorio: D"];
-"nodoPasD1"
-[ label=" D1 &#92;n Turnos: 1 &#92;n Maletas: 3"];
-"nodoPasD2"
-[ label=" D2 &#92;n Turnos: 2 &#92;n Maletas: 2"];
-"nodoPasD3"
-[ label=" D3 &#92;n Turnos: 2 &#92;n Maletas: 1"];
-"nodoPasD4"
-[ label=" D4 &#92;n Turnos: 3 &#92;n Maletas: 2"];
-"nodoPasD5"
-[ label=" D5 &#92;n Turnos: 1 &#92;n Maletas: 3"];
-"nodoPasD6"
-[ label=" D6 &#92;n Turnos: 3 &#92;n Maletas: 1"];
-"nodoPasD7"
-[ label=" D7 &#92;n Turnos: 1 &#92;n Maletas: 2"];
-"nodoPasD8"
-[ label=" D8 &#92;n Turnos: 2 &#92;n Maletas: 4"];
-"nodoPasD9"
-[ label=" D9 &#92;n Turnos: 3 &#92;n Maletas: 1"];
-"nodoPasD10"
-[ label=" D10 &#92;n Turnos: 2 &#92;n Maletas: 1"];
-"nodoEscritorio3"
-[ label=" Escritorio: E"];
-"nodoPasE1"
-[ label=" E1 &#92;n Turnos: 2 &#92;n Maletas: 2"];
-"nodoPasE2"
-[ label=" E2 &#92;n Turnos: 3 &#92;n Maletas: 2"];
-"nodoPasE3"
-[ label=" E3 &#92;n Turnos: 2 &#92;n Maletas: 2"];
-"nodoPasE4"
-[ label=" E4 &#92;n Turnos: 1 &#92;n Maletas: 1"];
-"nodoPasE5"
-[ label=" E5 &#92;n Turnos: 2 &#92;n Maletas: 1"];
-"nodoPasE6"
-[ label=" E6 &#92;n Turnos: 1 &#92;n Maletas: 2"];
-"nodoPasE7"
-[ label=" E7 &#92;n Turnos: 2 &#92;n Maletas: 1"];
-"nodoPasE8"
-[ label=" E8 &#92;n Turnos: 1 &#92;n Maletas: 3"];
-"nodoPasE9"
-[ label=" E9 &#92;n Turnos: 2 &#92;n Maletas: 1"];
-"nodoPasE10"
-[ label=" E10 &#92;n Turnos: 2 &#92;n Maletas: 2"];
-"nodoEscritorio4"
-[ label=" Escritorio: F"];
-"nodoPasF1"
-[ label=" F1 &#92;n Turnos: 1 &#92;n Maletas: 2"];
-"nodoPasF2"
-[ label=" F2 &#92;n Turnos: 2 &#92;n Maletas: 3"];
-"nodoPasF3"
-[ label=" F3 &#92;n Turnos: 2 &#92;n Maletas: 4"];
-"nodoPasF4"
-[ label=" F4 &#92;n Turnos: 1 &#92;n Maletas: 4"];
-"nodoPasF5"
-[ label=" F5 &#92;n Turnos: 1 &#92;n Maletas: 3"];
-"nodoPasF6"
-[ label=" F6 &#92;n Turnos: 1 &#92;n Maletas: 4"];
-"nodoPasF7"
-[ label=" F7 &#92;n Turnos: 2 &#92;n Maletas: 3"];
-"nodoPasF8"
-[ label=" F8 &#92;n Turnos: 2 &#92;n Maletas: 2"];
-"nodoPasF9"
-[ label=" F9 &#92;n Turnos: 3 &#92;n Maletas: 1"];
-"nodoPasF10"
-[ label=" F10 &#92;n Turnos: 2 &#92;n Maletas: 2"];
-"nodoEscritorio5"
-[ label=" Escritorio: G"];
-"nodoPasG1"
-[ label=" G1 &#92;n Turnos: 2 &#92;n Maletas: 2"];
-"nodoPasG2"
-[ label=" G2 &#92;n Turnos: 2 &#92;n Maletas: 1"];
-"nodoPasG3"
-[ label=" G3 &#92;n Turnos: 2 &#92;n Maletas: 3"];
-"nodoPasG4"
-[ label=" G4 &#92;n Turnos: 2 &#92;n Maletas: 4"];
-"nodoPasG5"
-[ label=" G5 &#92;n Turnos: 3 &#92;n Maletas: 4"];
-"nodoPasG6"
-[ label=" G6 &#92;n Turnos: 1 &#92;n Maletas: 1"];
-"nodoPasG7"
-[ label=" G7 &#92;n Turnos: 2 &#92;n Maletas: 1"];
-"nodoPasG8"
-[ label=" G8 &#92;n Turnos: 3 &#92;n Maletas: 1"];
-"nodoPasG9"
-[ label=" G9 &#92;n Turnos: 1 &#92;n Maletas: 3"];
-"nodoPasG10"
-[ label=" G10 &#92;n Turnos: 2 &#92;n Maletas: 1"];
-"nodoEscritorio6"
-[ label=" Escritorio: H"];
-"nodoPasH1"
-[ label=" H1 &#92;n Turnos: 3 &#92;n Maletas: 2"];
-"nodoPasH2"
-[ label=" H2 &#92;n Turnos: 3 &#92;n Maletas: 3"];
-"nodoPasH3"
-[ label=" H3 &#92;n Turnos: 2 &#92;n Maletas: 2"];
-"nodoPasH4"
-[ label=" H4 &#92;n Turnos: 2 &#92;n Maletas: 3"];
-"nodoPasH5"
-[ label=" H5 &#92;n Turnos: 3 &#92;n Maletas: 1"];
-"nodoPasH6"
-[ label=" H6 &#92;n Turnos: 2 &#92;n Maletas: 1"];
-"nodoEscritorio7"
-[ label=" Escritorio: I"];
-"nodoEscritorio8"
-[ label=" Escritorio: J"];
-"nodoEscritorio9"
-[ label=" Escritorio: K"];
-"nodoEscritorio10"
-[ label=" Escritorio: L"];
-"nodoEscritorio11"
-[ label=" Escritorio: M"];
-"nodoEscritorio12"
-[ label=" Escritorio: N"];
-"nodoEscritorio13"
-[ label=" Escritorio: O"];
-"nodoEscritorio14"
 [ label=" Escritorio: X"];
-"nodoEscritorio15"
+"nodoEscritorio3"
 [ label=" Escritorio: Z"];
 "nodoEscritorio1"-> "nodoEscritorio2";
 "nodoEscritorio2"-> "nodoEscritorio1";
-"nodoEscritorio1"-> "nodoPasC1";
-"nodoPasC1"-> "nodoPasC2";
-"nodoPasC2"-> "nodoPasC3";
-"nodoPasC3"-> "nodoPasC4";
-"nodoPasC4"-> "nodoPasC5";
-"nodoPasC5"-> "nodoPasC6";
-"nodoPasC6"-> "nodoPasC7";
-"nodoPasC7"-> "nodoPasC8";
-"nodoPasC8"-> "nodoPasC9";
-"nodoPasC9"-> "nodoPasC10";
 "nodoEscritorio2"-> "nodoEscritorio3";
 "nodoEscritorio3"-> "nodoEscritorio2";
-"nodoEscritorio2"-> "nodoPasD1";
-"nodoPasD1"-> "nodoPasD2";
-"nodoPasD2"-> "nodoPasD3";
-"nodoPasD3"-> "nodoPasD4";
-"nodoPasD4"-> "nodoPasD5";
-"nodoPasD5"-> "nodoPasD6";
-"nodoPasD6"-> "nodoPasD7";
-"nodoPasD7"-> "nodoPasD8";
-"nodoPasD8"-> "nodoPasD9";
-"nodoPasD9"-> "nodoPasD10";
 "nodoEscritorio3"-> "nodoEscritorio4";
 "nodoEscritorio4"-> "nodoEscritorio3";
-"nodoEscritorio3"-> "nodoPasE1";
-"nodoPasE1"-> "nodoPasE2";
-"nodoPasE2"-> "nodoPasE3";
-"nodoPasE3"-> "nodoPasE4";
-"nodoPasE4"-> "nodoPasE5";
-"nodoPasE5"-> "nodoPasE6";
-"nodoPasE6"-> "nodoPasE7";
-"nodoPasE7"-> "nodoPasE8";
-"nodoPasE8"-> "nodoPasE9";
-"nodoPasE9"-> "nodoPasE10";
-"nodoEscritorio4"-> "nodoEscritorio5";
-"nodoEscritorio5"-> "nodoEscritorio4";
-"nodoEscritorio4"-> "nodoPasF1";
-"nodoPasF1"-> "nodoPasF2";
-"nodoPasF2"-> "nodoPasF3";
-"nodoPasF3"-> "nodoPasF4";
-"nodoPasF4"-> "nodoPasF5";
-"nodoPasF5"-> "nodoPasF6";
-"nodoPasF6"-> "nodoPasF7";
-"nodoPasF7"-> "nodoPasF8";
-"nodoPasF8"-> "nodoPasF9";
-"nodoPasF9"-> "nodoPasF10";
-"nodoEscritorio5"-> "nodoEscritorio6";
-"nodoEscritorio6"-> "nodoEscritorio5";
-"nodoEscritorio5"-> "nodoPasG1";
-"nodoPasG1"-> "nodoPasG2";
-"nodoPasG2"-> "nodoPasG3";
-"nodoPasG3"-> "nodoPasG4";
-"nodoPasG4"-> "nodoPasG5";
-"nodoPasG5"-> "nodoPasG6";
-"nodoPasG6"-> "nodoPasG7";
-"nodoPasG7"-> "nodoPasG8";
-"nodoPasG8"-> "nodoPasG9";
-"nodoPasG9"-> "nodoPasG10";
-"nodoEscritorio6"-> "nodoEscritorio7";
-"nodoEscritorio7"-> "nodoEscritorio6";
-"nodoEscritorio6"-> "nodoPasH1";
-"nodoPasH1"-> "nodoPasH2";
-"nodoPasH2"-> "nodoPasH3";
-"nodoPasH3"-> "nodoPasH4";
-"nodoPasH4"-> "nodoPasH5";
-"nodoPasH5"-> "nodoPasH6";
-"nodoEscritorio7"-> "nodoEscritorio8";
-"nodoEscritorio8"-> "nodoEscritorio7";
-"nodoEscritorio8"-> "nodoEscritorio9";
-"nodoEscritorio9"-> "nodoEscritorio8";
-"nodoEscritorio9"-> "nodoEscritorio10";
-"nodoEscritorio10"-> "nodoEscritorio9";
-"nodoEscritorio10"-> "nodoEscritorio11";
-"nodoEscritorio11"-> "nodoEscritorio10";
-"nodoEscritorio11"-> "nodoEscritorio12";
-"nodoEscritorio12"-> "nodoEscritorio11";
-"nodoEscritorio12"-> "nodoEscritorio13";
-"nodoEscritorio13"-> "nodoEscritorio12";
-"nodoEscritorio13"-> "nodoEscritorio14";
-"nodoEscritorio14"-> "nodoEscritorio13";
-"nodoEscritorio14"-> "nodoEscritorio15";
-"nodoEscritorio15"-> "nodoEscritorio14";
 fontsize = "10"
 shape = "Mrecord"
 color="cyan4"
@@ -270,44 +38,16 @@ node [style=filled];
 [ label=" Estacion: 2 &#92;n Avion: 0 &#92;n Turnos: 0 &#92;n "];
 "nodoEstacion3"
 [ label=" Estacion: 3 &#92;n Avion: 0 &#92;n Turnos: 0 &#92;n "];
-"nodoEstacion4"
-[ label=" Estacion: 4 &#92;n Avion: 0 &#92;n Turnos: 0 &#92;n "];
-"nodoEstacion5"
-[ label=" Estacion: 5 &#92;n Avion: 0 &#92;n Turnos: 0 &#92;n "];
-"nodoEstacion6"
-[ label=" Estacion: 6 &#92;n Avion: 0 &#92;n Turnos: 0 &#92;n "];
-"nodoEstacion7"
-[ label=" Estacion: 7 &#92;n Avion: 0 &#92;n Turnos: 0 &#92;n "];
-"nodoEstacion8"
-[ label=" Estacion: 8 &#92;n Avion: 0 &#92;n Turnos: 0 &#92;n "];
-"nodoEstacion9"
-[ label=" Estacion: 9 &#92;n Avion: 0 &#92;n Turnos: 0 &#92;n "];
-"nodoEstacion10"
-[ label=" Estacion: 10 &#92;n Avion: 0 &#92;n Turnos: 0 &#92;n "];
-"nodoEstacion11"
-[ label=" Estacion: 11 &#92;n Avion: 0 &#92;n Turnos: 0 &#92;n "];
-"nodoEstacion12"
-[ label=" Estacion: 12 &#92;n Avion: 0 &#92;n Turnos: 0 &#92;n "];
-"nodoEstacion13"
-[ label=" Estacion: 13 &#92;n Avion: 0 &#92;n Turnos: 0 &#92;n "];
-"nodoEstacion14"
-[ label=" Estacion: 14 &#92;n Avion: 0 &#92;n Turnos: 0 &#92;n "];
-"nodoEstacion15"
-[ label=" Estacion: 15 &#92;n Avion: 0 &#92;n Turnos: 0 &#92;n "];
 "nodoEstacion1"-> "nodoEstacion2";
 "nodoEstacion2"-> "nodoEstacion3";
-"nodoEstacion3"-> "nodoEstacion4";
-"nodoEstacion4"-> "nodoEstacion5";
-"nodoEstacion5"-> "nodoEstacion6";
-"nodoEstacion6"-> "nodoEstacion7";
-"nodoEstacion7"-> "nodoEstacion8";
-"nodoEstacion8"-> "nodoEstacion9";
-"nodoEstacion9"-> "nodoEstacion10";
-"nodoEstacion10"-> "nodoEstacion11";
-"nodoEstacion11"-> "nodoEstacion12";
-"nodoEstacion12"-> "nodoEstacion13";
-"nodoEstacion13"-> "nodoEstacion14";
-"nodoEstacion14"-> "nodoEstacion15";
+"nodoMantenimiento1"
+[ label=" Avion: 1 &#92;n Avion: 1 &#92;n Turnos: 5 &#92;n "];
+"nodoMantenimiento2"
+[ label=" Avion: 2 &#92;n Avion: 2 &#92;n Turnos: 3 &#92;n "];
+"nodoMantenimiento3"
+[ label=" Avion: 3 &#92;n Avion: 3 &#92;n Turnos: 3 &#92;n "];
+"nodoMantenimiento1"-> "nodoMantenimiento2";
+"nodoMantenimiento2"-> "nodoMantenimiento3";
 fontsize = "10"
 shape = "Mrecord"
 color="green"
@@ -579,6 +319,178 @@ node [style=filled];
 [ label=" Maleta: 129"];
 "nodoM130"
 [ label=" Maleta: 130"];
+"nodoM131"
+[ label=" Maleta: 131"];
+"nodoM132"
+[ label=" Maleta: 132"];
+"nodoM133"
+[ label=" Maleta: 133"];
+"nodoM134"
+[ label=" Maleta: 134"];
+"nodoM135"
+[ label=" Maleta: 135"];
+"nodoM136"
+[ label=" Maleta: 136"];
+"nodoM137"
+[ label=" Maleta: 137"];
+"nodoM138"
+[ label=" Maleta: 138"];
+"nodoM139"
+[ label=" Maleta: 139"];
+"nodoM140"
+[ label=" Maleta: 140"];
+"nodoM141"
+[ label=" Maleta: 141"];
+"nodoM142"
+[ label=" Maleta: 142"];
+"nodoM143"
+[ label=" Maleta: 143"];
+"nodoM144"
+[ label=" Maleta: 144"];
+"nodoM145"
+[ label=" Maleta: 145"];
+"nodoM146"
+[ label=" Maleta: 146"];
+"nodoM147"
+[ label=" Maleta: 147"];
+"nodoM148"
+[ label=" Maleta: 148"];
+"nodoM149"
+[ label=" Maleta: 149"];
+"nodoM150"
+[ label=" Maleta: 150"];
+"nodoM151"
+[ label=" Maleta: 151"];
+"nodoM152"
+[ label=" Maleta: 152"];
+"nodoM153"
+[ label=" Maleta: 153"];
+"nodoM154"
+[ label=" Maleta: 154"];
+"nodoM155"
+[ label=" Maleta: 155"];
+"nodoM156"
+[ label=" Maleta: 156"];
+"nodoM157"
+[ label=" Maleta: 157"];
+"nodoM158"
+[ label=" Maleta: 158"];
+"nodoM159"
+[ label=" Maleta: 159"];
+"nodoM160"
+[ label=" Maleta: 160"];
+"nodoM161"
+[ label=" Maleta: 161"];
+"nodoM162"
+[ label=" Maleta: 162"];
+"nodoM163"
+[ label=" Maleta: 163"];
+"nodoM164"
+[ label=" Maleta: 164"];
+"nodoM165"
+[ label=" Maleta: 165"];
+"nodoM166"
+[ label=" Maleta: 166"];
+"nodoM167"
+[ label=" Maleta: 167"];
+"nodoM168"
+[ label=" Maleta: 168"];
+"nodoM169"
+[ label=" Maleta: 169"];
+"nodoM170"
+[ label=" Maleta: 170"];
+"nodoM171"
+[ label=" Maleta: 171"];
+"nodoM172"
+[ label=" Maleta: 172"];
+"nodoM173"
+[ label=" Maleta: 173"];
+"nodoM174"
+[ label=" Maleta: 174"];
+"nodoM175"
+[ label=" Maleta: 175"];
+"nodoM176"
+[ label=" Maleta: 176"];
+"nodoM177"
+[ label=" Maleta: 177"];
+"nodoM178"
+[ label=" Maleta: 178"];
+"nodoM179"
+[ label=" Maleta: 179"];
+"nodoM180"
+[ label=" Maleta: 180"];
+"nodoM181"
+[ label=" Maleta: 181"];
+"nodoM182"
+[ label=" Maleta: 182"];
+"nodoM183"
+[ label=" Maleta: 183"];
+"nodoM184"
+[ label=" Maleta: 184"];
+"nodoM185"
+[ label=" Maleta: 185"];
+"nodoM186"
+[ label=" Maleta: 186"];
+"nodoM187"
+[ label=" Maleta: 187"];
+"nodoM188"
+[ label=" Maleta: 188"];
+"nodoM189"
+[ label=" Maleta: 189"];
+"nodoM190"
+[ label=" Maleta: 190"];
+"nodoM191"
+[ label=" Maleta: 191"];
+"nodoM192"
+[ label=" Maleta: 192"];
+"nodoM193"
+[ label=" Maleta: 193"];
+"nodoM194"
+[ label=" Maleta: 194"];
+"nodoM195"
+[ label=" Maleta: 195"];
+"nodoM196"
+[ label=" Maleta: 196"];
+"nodoM197"
+[ label=" Maleta: 197"];
+"nodoM198"
+[ label=" Maleta: 198"];
+"nodoM199"
+[ label=" Maleta: 199"];
+"nodoM200"
+[ label=" Maleta: 200"];
+"nodoM201"
+[ label=" Maleta: 201"];
+"nodoM202"
+[ label=" Maleta: 202"];
+"nodoM203"
+[ label=" Maleta: 203"];
+"nodoM204"
+[ label=" Maleta: 204"];
+"nodoM205"
+[ label=" Maleta: 205"];
+"nodoM206"
+[ label=" Maleta: 206"];
+"nodoM207"
+[ label=" Maleta: 207"];
+"nodoM208"
+[ label=" Maleta: 208"];
+"nodoM209"
+[ label=" Maleta: 209"];
+"nodoM210"
+[ label=" Maleta: 210"];
+"nodoM211"
+[ label=" Maleta: 211"];
+"nodoM212"
+[ label=" Maleta: 212"];
+"nodoM213"
+[ label=" Maleta: 213"];
+"nodoM214"
+[ label=" Maleta: 214"];
+"nodoM215"
+[ label=" Maleta: 215"];
+"nodoM216"
+[ label=" Maleta: 216"];
 "nodoM0"-> "nodoM1";
 "nodoM1"-> "nodoM0";
 "nodoM1"-> "nodoM2";
@@ -839,8 +751,180 @@ node [style=filled];
 "nodoM129"-> "nodoM128";
 "nodoM129"-> "nodoM130";
 "nodoM130"-> "nodoM129";
-"nodoM130"-> "nodoM0";
-"nodoM0"-> "nodoM130";
+"nodoM130"-> "nodoM131";
+"nodoM131"-> "nodoM130";
+"nodoM131"-> "nodoM132";
+"nodoM132"-> "nodoM131";
+"nodoM132"-> "nodoM133";
+"nodoM133"-> "nodoM132";
+"nodoM133"-> "nodoM134";
+"nodoM134"-> "nodoM133";
+"nodoM134"-> "nodoM135";
+"nodoM135"-> "nodoM134";
+"nodoM135"-> "nodoM136";
+"nodoM136"-> "nodoM135";
+"nodoM136"-> "nodoM137";
+"nodoM137"-> "nodoM136";
+"nodoM137"-> "nodoM138";
+"nodoM138"-> "nodoM137";
+"nodoM138"-> "nodoM139";
+"nodoM139"-> "nodoM138";
+"nodoM139"-> "nodoM140";
+"nodoM140"-> "nodoM139";
+"nodoM140"-> "nodoM141";
+"nodoM141"-> "nodoM140";
+"nodoM141"-> "nodoM142";
+"nodoM142"-> "nodoM141";
+"nodoM142"-> "nodoM143";
+"nodoM143"-> "nodoM142";
+"nodoM143"-> "nodoM144";
+"nodoM144"-> "nodoM143";
+"nodoM144"-> "nodoM145";
+"nodoM145"-> "nodoM144";
+"nodoM145"-> "nodoM146";
+"nodoM146"-> "nodoM145";
+"nodoM146"-> "nodoM147";
+"nodoM147"-> "nodoM146";
+"nodoM147"-> "nodoM148";
+"nodoM148"-> "nodoM147";
+"nodoM148"-> "nodoM149";
+"nodoM149"-> "nodoM148";
+"nodoM149"-> "nodoM150";
+"nodoM150"-> "nodoM149";
+"nodoM150"-> "nodoM151";
+"nodoM151"-> "nodoM150";
+"nodoM151"-> "nodoM152";
+"nodoM152"-> "nodoM151";
+"nodoM152"-> "nodoM153";
+"nodoM153"-> "nodoM152";
+"nodoM153"-> "nodoM154";
+"nodoM154"-> "nodoM153";
+"nodoM154"-> "nodoM155";
+"nodoM155"-> "nodoM154";
+"nodoM155"-> "nodoM156";
+"nodoM156"-> "nodoM155";
+"nodoM156"-> "nodoM157";
+"nodoM157"-> "nodoM156";
+"nodoM157"-> "nodoM158";
+"nodoM158"-> "nodoM157";
+"nodoM158"-> "nodoM159";
+"nodoM159"-> "nodoM158";
+"nodoM159"-> "nodoM160";
+"nodoM160"-> "nodoM159";
+"nodoM160"-> "nodoM161";
+"nodoM161"-> "nodoM160";
+"nodoM161"-> "nodoM162";
+"nodoM162"-> "nodoM161";
+"nodoM162"-> "nodoM163";
+"nodoM163"-> "nodoM162";
+"nodoM163"-> "nodoM164";
+"nodoM164"-> "nodoM163";
+"nodoM164"-> "nodoM165";
+"nodoM165"-> "nodoM164";
+"nodoM165"-> "nodoM166";
+"nodoM166"-> "nodoM165";
+"nodoM166"-> "nodoM167";
+"nodoM167"-> "nodoM166";
+"nodoM167"-> "nodoM168";
+"nodoM168"-> "nodoM167";
+"nodoM168"-> "nodoM169";
+"nodoM169"-> "nodoM168";
+"nodoM169"-> "nodoM170";
+"nodoM170"-> "nodoM169";
+"nodoM170"-> "nodoM171";
+"nodoM171"-> "nodoM170";
+"nodoM171"-> "nodoM172";
+"nodoM172"-> "nodoM171";
+"nodoM172"-> "nodoM173";
+"nodoM173"-> "nodoM172";
+"nodoM173"-> "nodoM174";
+"nodoM174"-> "nodoM173";
+"nodoM174"-> "nodoM175";
+"nodoM175"-> "nodoM174";
+"nodoM175"-> "nodoM176";
+"nodoM176"-> "nodoM175";
+"nodoM176"-> "nodoM177";
+"nodoM177"-> "nodoM176";
+"nodoM177"-> "nodoM178";
+"nodoM178"-> "nodoM177";
+"nodoM178"-> "nodoM179";
+"nodoM179"-> "nodoM178";
+"nodoM179"-> "nodoM180";
+"nodoM180"-> "nodoM179";
+"nodoM180"-> "nodoM181";
+"nodoM181"-> "nodoM180";
+"nodoM181"-> "nodoM182";
+"nodoM182"-> "nodoM181";
+"nodoM182"-> "nodoM183";
+"nodoM183"-> "nodoM182";
+"nodoM183"-> "nodoM184";
+"nodoM184"-> "nodoM183";
+"nodoM184"-> "nodoM185";
+"nodoM185"-> "nodoM184";
+"nodoM185"-> "nodoM186";
+"nodoM186"-> "nodoM185";
+"nodoM186"-> "nodoM187";
+"nodoM187"-> "nodoM186";
+"nodoM187"-> "nodoM188";
+"nodoM188"-> "nodoM187";
+"nodoM188"-> "nodoM189";
+"nodoM189"-> "nodoM188";
+"nodoM189"-> "nodoM190";
+"nodoM190"-> "nodoM189";
+"nodoM190"-> "nodoM191";
+"nodoM191"-> "nodoM190";
+"nodoM191"-> "nodoM192";
+"nodoM192"-> "nodoM191";
+"nodoM192"-> "nodoM193";
+"nodoM193"-> "nodoM192";
+"nodoM193"-> "nodoM194";
+"nodoM194"-> "nodoM193";
+"nodoM194"-> "nodoM195";
+"nodoM195"-> "nodoM194";
+"nodoM195"-> "nodoM196";
+"nodoM196"-> "nodoM195";
+"nodoM196"-> "nodoM197";
+"nodoM197"-> "nodoM196";
+"nodoM197"-> "nodoM198";
+"nodoM198"-> "nodoM197";
+"nodoM198"-> "nodoM199";
+"nodoM199"-> "nodoM198";
+"nodoM199"-> "nodoM200";
+"nodoM200"-> "nodoM199";
+"nodoM200"-> "nodoM201";
+"nodoM201"-> "nodoM200";
+"nodoM201"-> "nodoM202";
+"nodoM202"-> "nodoM201";
+"nodoM202"-> "nodoM203";
+"nodoM203"-> "nodoM202";
+"nodoM203"-> "nodoM204";
+"nodoM204"-> "nodoM203";
+"nodoM204"-> "nodoM205";
+"nodoM205"-> "nodoM204";
+"nodoM205"-> "nodoM206";
+"nodoM206"-> "nodoM205";
+"nodoM206"-> "nodoM207";
+"nodoM207"-> "nodoM206";
+"nodoM207"-> "nodoM208";
+"nodoM208"-> "nodoM207";
+"nodoM208"-> "nodoM209";
+"nodoM209"-> "nodoM208";
+"nodoM209"-> "nodoM210";
+"nodoM210"-> "nodoM209";
+"nodoM210"-> "nodoM211";
+"nodoM211"-> "nodoM210";
+"nodoM211"-> "nodoM212";
+"nodoM212"-> "nodoM211";
+"nodoM212"-> "nodoM213";
+"nodoM213"-> "nodoM212";
+"nodoM213"-> "nodoM214";
+"nodoM214"-> "nodoM213";
+"nodoM214"-> "nodoM215";
+"nodoM215"-> "nodoM214";
+"nodoM215"-> "nodoM216";
+"nodoM216"-> "nodoM215";
+"nodoM216"-> "nodoM0";
+"nodoM0"-> "nodoM216";
 fontsize = "10"
 shape = "Mrecord"
 color="orange"

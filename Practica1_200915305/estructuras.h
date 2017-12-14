@@ -81,6 +81,8 @@ struct ColaEscritorios
     void Mostrar_Cola_Escritorios();
     void Graficar_Cola_Escritorios();
     void Cola(NodoColaPasajeros *Nuevo);
+    void Verificar_Turnos_Escritoios();
+    void Eliminar_Cola_Escritorios(NodoEscritorio *Actual);
     int contador=0;
 };
 

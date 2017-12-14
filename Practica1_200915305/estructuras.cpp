@@ -79,8 +79,12 @@ void ColaAviones::Agregar_Cola_Aviones(int Avion, char *Tipo, int Pasajeros, int
 ///
 void ColaAviones::Eliminar_Cola_Aviones(){
     if(primeroCA!=ultimoCA){
+         newMantenimiento->Agregar_Cola_Mantenimiento(primeroCA);
+         cout<<"....................ELIMINAR COLA AVIONES......"<<endl;
         primeroCA=primeroCA->sig;
+
     }else{
+        newMantenimiento->Agregar_Cola_Mantenimiento(primeroCA);
         primeroCA=ultimoCA=NULL;
         cout<<"La Pila esta vacia..."<<endl;
     }
@@ -187,6 +191,7 @@ void ColaPasajeros::Verificar_Turnos_Pasajeros(){
 ///*********************DESABORDAJE DE LOS AVIONES*******************************
 ///
 void ColaAviones::Desabordaje(int Pasajeros, int Avion){
+    //newMantenimiento->Agregar_Cola_Mantenimiento(primeroCA);
     for(int i=1;i<=Pasajeros;i++){
         int maletas = 1+rand()%(5-1);
         int documentos = 1+rand()%(11-1);
@@ -490,7 +495,6 @@ void ColaEscritorios::Cola(NodoColaPasajeros *Nuevo){
 ///*************MOSTRAR COLA DE LOS ESCRITORIOS********************
 ///
 void ColaEscritorios::Mostrar_Cola_Escritorios(){
-
      NodoES *tem=primeroES;
      NodoC *actual;
      while(tem!=NULL){
@@ -508,10 +512,45 @@ void ColaEscritorios::Mostrar_Cola_Escritorios(){
          tem=tem->sig;
      }
 
+}
+
+///****************VERIFICAR LOS TURNOS DE LOS PASAJEROS EN LA LISTA DOBLE DE ESCRITORIOS**********
+///
+void ColaEscritorios::Verificar_Turnos_Escritoios(){
+    if(primeroES!=NULL){
+        NodoES *temp=primeroES;
+
+            while(temp!=NULL){
+                if(temp->primeroC!=NULL){
+                    if(temp->primeroC->Turnos>0){
+                       temp->primeroC->Turnos--;
+                    }
+                    if(temp->primeroC->Turnos==0){
+                        ///Eliminar Pasajero de la Cola de los Escritorios....
+                        ///ELIMINAR.....
+                        Eliminar_Cola_Escritorios(temp);
+                    }
+
+
+
+                 }
+                temp=temp->sig;
+            }
+
+    }
 
 }
 
+void ColaEscritorios::Eliminar_Cola_Escritorios(NodoEscritorio *Actual){
+    if(Actual->primeroC!=Actual->ultimoC){
+        Actual->primeroC=Actual->primeroC->sig;
+        Actual->Cantidad--;
 
+    }else{
+        Actual->primeroC=Actual->ultimoC=NULL;
+        Actual->Cantidad--;
+    }
+}
 
 
 ///*************GRAFICAR COLA DE LOS ESCRITORIOS************************
@@ -570,7 +609,7 @@ void ColaEscritorios::Graficar_Cola_Escritorios(){
 
       NodoES *aux2=primeroES;
 
-      while(aux2->sig!=NULL){
+      while(aux2!=NULL){
           // nodo1---->nodo2 siguintes
           fputs("\"nodoEscritorio",gra);
           fprintf(gra,"%d",b);
@@ -594,7 +633,7 @@ void ColaEscritorios::Graficar_Cola_Escritorios(){
                           fprintf(gra,"%s",aux2->Escritorio);
                           fprintf(gra,"%d",bb);
                           fputs( "\";\n",gra);
-                          while(actual->sig!=NULL){
+                          while(actual!=NULL){
                               // nodo1---->nodo2 siguintes
                               fputs("\"nodoPas",gra);
                               fprintf(gra,"%s",aux2->Escritorio);
@@ -791,6 +830,7 @@ void Estacion::Graficar_Estacion(){
               c++;
       }
 
+   newMantenimiento->Graficar_Cola_Mantenimiento();
 
    fputs("fontsize = \"10\"\n",gra);
    fputs("shape = \"Mrecord\"\n",gra);
@@ -825,7 +865,51 @@ void ColaMantenimiento::Agregar_Cola_Mantenimiento(NodoColaAviones *Nuevo){
 ////*****************GRAFICAR COLA DE MANTENIMIENTO*****************************************
 ///
 void ColaMantenimiento::Graficar_Cola_Mantenimiento(){
+    if(primeroCM!=NULL){
 
+       int a=1;
+       NodoCM *aux=primeroCM;
+       while(aux!=NULL){
+           fputs("\"",gra);
+           fputs("nodoMantenimiento",gra);
+           fprintf(gra,"%d",a);
+           fputs("\"",gra);
+           fputs("\n[ ",gra);
+           fprintf(gra, "label=\" " );
+           fputs("Avion: ",gra);
+           fprintf(gra, "%d",a);
+           fputs(" &#92;n ",gra);
+           fputs("Avion: ",gra);
+           fprintf(gra, "%d",aux->Avion);
+           fputs(" &#92;n ",gra);
+           fputs("Turnos: ",gra);
+           fprintf(gra, "%d",aux->Turnos);
+           fputs(" &#92;n ",gra);
+           fputs("\"];\n",gra);
+           a++;
+               aux=aux->sig;
+       }
+
+       int b =1;
+       int c =b+1;
+       aux=primeroCM;
+       while(aux->sig!=NULL){
+           // nodo1---->nodo2 siguintes
+           fputs("\"nodoMantenimiento",gra);
+           fprintf(gra,"%d",b);
+           fputs("\"-> \"nodoMantenimiento",gra);
+           fprintf(gra,"%d",c);
+           fputs( "\";\n",gra);
+
+
+               aux=aux->sig;
+               b++;
+               c++;
+       }
+
+
+
+ }
 }
 
 

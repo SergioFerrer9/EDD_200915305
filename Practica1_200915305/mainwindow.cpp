@@ -46,7 +46,7 @@ void MainWindow::on_pushButton_2_clicked()///Simulacion..
 {
     string Aviones=ui->lineEdit->text().toUtf8().constData();
     string Escritorios=ui->lineEdit_2->text().toUtf8().constData();
-    string Mantenimiento=ui->lineEdit_2->text().toUtf8().constData();
+    string Mantenimiento=ui->lineEdit_3->text().toUtf8().constData();
     Cantidad_Aviones=atoi(Aviones.c_str());
     Cantidad_Escritorios=atoi(Escritorios.c_str());
     Cantidad_Mantenimiento=atoi(Mantenimiento.c_str());
@@ -169,6 +169,7 @@ void MainWindow::Turnos(){
 void MainWindow::on_pushButton_3_clicked()///TURNOS......
 {
     Turnos();
+    Escri->Verificar_Turnos_Escritoios();
     pasajeros->Verificar_Turnos_Pasajeros();
     Cola->Verificar_Turnos();
     Escri->Mostrar_Cola_Escritorios();
