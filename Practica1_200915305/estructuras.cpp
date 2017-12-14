@@ -9,6 +9,7 @@ using std::endl;
 ColaPasajeros *newPasajeros = new ColaPasajeros();
 ColaEscritorios *newEscritorios = new ColaEscritorios();
 NodoEscritorio *NodoEcritorio_ = new NodoEscritorio();
+Maletas *newMaletas = new Maletas();
 
 FILE *gra;
 
@@ -119,20 +120,20 @@ void ColaPasajeros::Eliminar_Cola_Pasajeros(){
     Maletas *maleta = new Maletas();
     if(primeroPA!=ultimoPA){
         newEscritorios->Cola(primeroPA);
-        for(int i=0;i<primeroPA->Maletas-1;i++){
+        for(int i=0;i<primeroPA->Maletas;i++){
             maleta->Agregar_Maleta();
          }
         cout<<"Agregando a Cola...."<<endl;
         primeroPA=primeroPA->sig;
 
     }else{
-       // maleta->Agregar_Maleta();
 
+        maleta->Agregar_Maleta();
         primeroPA=ultimoPA=NULL;
         cout<<"La Cola de Pasajeros esta vacia..."<<endl;
     }
 
-    maleta->Graficar_Maleta();
+
 }
 
 ///********VERIFICAR SI AI PASAJEROS PARA PASAR A LOS ESCRITORIOS*****
@@ -351,6 +352,9 @@ void ColaAviones::Graficar_Cola_Aviones(){
     }
     newPasajeros->Graficar_Cola_Pasajeros();
     newEscritorios->Graficar_Cola_Escritorios();
+    newMaletas->Graficar_Maleta();
+
+
 
     fputs("}",gra);
 
@@ -624,14 +628,14 @@ void Maletas::Agregar_Maleta(){
         nuevo->ant=NULL;
         primeroM=nuevo;
         ultimoM=nuevo;
-        cantidad++;
+        newMaletas->cantidad++;
     }else{
         ultimoM->sig=nuevo;
         nuevo->ant=ultimoM;
         ultimoM=nuevo;
         nuevo->sig=primeroM;
         primeroM->ant=nuevo;
-        cantidad++;
+        newMaletas->cantidad++;
 
     }
 }
@@ -639,12 +643,70 @@ void Maletas::Agregar_Maleta(){
 ///********************MOSTRAR LISTA DOBLE CIRCUAR*********************
 ///
 void Maletas::Graficar_Maleta(){
-    NodoM *aux=primeroM;
-    if(aux!=NULL){
-        for(int i=0; i<=cantidad;i++){
-            cout<<"Maleta:"<<cantidad<<endl;
-        }
-    }
+    if(primeroM!=NULL){
+   fputs("\n subgraph cluster_3 {\n",gra);
+   fputs("node [style=filled];\n",gra);
+
+      int a=0;
+      NodoM *aux=primeroM;
+      for(int i=0; i<newMaletas->cantidad; i++){
+          fputs("\"",gra);
+          fputs("nodoM",gra);
+          fprintf(gra,"%d",a);
+          fputs("\"",gra);
+          fputs("\n[ ",gra);
+          fprintf(gra, "label=\" " );
+          fputs("Maleta: ",gra);
+          fprintf(gra, "%d",a);
+          fputs("\"];\n",gra);
+          a++;
+              aux=aux->sig;
+      }
+
+      int b =0;
+      int c =b+1;
+      aux=primeroM;
+      int i=0;
+      for(i=0; i<newMaletas->cantidad-1; i++){
+          // nodo1---->nodo2 siguintes
+          fputs("\"nodoM",gra);
+          fprintf(gra,"%d",b);
+          fputs("\"-> \"nodoM",gra);
+          fprintf(gra,"%d",c);
+          fputs( "\";\n",gra);
+
+          // nodo1<----nodo2 siguintes
+          fputs("\"nodoM",gra);
+          fprintf(gra,"%d",c);
+          fputs("\"-> \"nodoM",gra);
+          fprintf(gra,"%d",b);
+          fputs( "\";\n",gra);
+
+
+              aux=aux->sig;
+              b++;
+              c++;
+      }
+      fputs("\"nodoM",gra);
+      fprintf(gra,"%d",i);
+      fputs("\"-> \"nodoM",gra);
+      fprintf(gra,"%d",0);
+      fputs( "\";\n",gra);
+
+      fputs("\"nodoM",gra);
+      fprintf(gra,"%d",0);
+      fputs("\"-> \"nodoM",gra);
+      fprintf(gra,"%d",i);
+      fputs( "\";\n",gra);
+
+
+   fputs("fontsize = \"10\"\n",gra);
+   fputs("shape = \"Mrecord\"\n",gra);
+   fputs("color=\"orange\"\n",gra);
+   fputs("style =\"filled, bold\"\n",gra);
+   fputs("label =\"Maletas\"\n",gra);
+   fputs("}\n",gra);
+}
 }
 
 
