@@ -189,12 +189,6 @@ void ColaPasajeros::Verificar_Turnos_Pasajeros(){
             }
         }
 
-       // newEscritorios->Documentos(primeroPA);
-       //
-       // AGREGAR LO DE LOS DOCUMENTOS....
-        //
-        //
-
     }
 }
 
@@ -284,8 +278,6 @@ void ColaPasajeros::Graficar_Cola_Pasajeros(){
                b++;
                c++;
        }
-
-   // fputs("b0 -> b1 -> b2 -> b3;\n" ,gra);
 
     fputs("fontsize = \"10\"\n",gra);
     fputs("shape = \"Mrecord\"\n",gra);
@@ -518,9 +510,9 @@ void ColaEscritorios::Documentos(NodoEscritorio *Nuevo){
                Nuevo->ultimoP=nuevo;
               cout<<"DOCUMENTO"<<Nuevo->primeroC->Documentos<<endl;
              }else{
-               nuevo->sig=NULL;
-               Nuevo->ultimoP->sig=nuevo;
-               Nuevo->ultimoP=nuevo;
+               nuevo->sig=Nuevo->primeroP;
+               Nuevo->primeroP=nuevo;;
+
                cout<<"DOCUMENTO.."<<Nuevo->primeroC->Documentos<<endl;
            }
 
@@ -594,10 +586,19 @@ void ColaEscritorios::Verificar_Turnos_Escritoios(){
 
 void ColaEscritorios::Eliminar_Cola_Escritorios(NodoEscritorio *Actual){
     if(Actual->primeroC!=Actual->ultimoC){
+        //Eliminar Maletas...
+        for(int i=0;i<Actual->primeroC->Maletas;i++){
+            newMaletas->Eliminar_Maleta();
+            cout<<"ELIMINAR MALETAS......"<<Actual->primeroC->Maletas<<endl;
+        }
         Actual->primeroC=Actual->primeroC->sig;
         Actual->Cantidad--;
 
     }else{
+
+        for(int i=0;i<Actual->primeroC->Maletas;i++){
+            newMaletas->Eliminar_Maleta();
+        }
         Actual->primeroC=Actual->ultimoC=NULL;
         Actual->Cantidad--;
     }
@@ -797,20 +798,35 @@ void Maletas::Agregar_Maleta(){
         nuevo->sig=NULL;
         nuevo->ant=NULL;
         primeroM=nuevo;
+        primeroM->sig=primeroM;
+        nuevo->ant=ultimoM;
         ultimoM=nuevo;
         newMaletas->cantidad++;
     }else{
         ultimoM->sig=nuevo;
+        nuevo->sig=primeroM;
         nuevo->ant=ultimoM;
         ultimoM=nuevo;
-        nuevo->sig=primeroM;
-        primeroM->ant=nuevo;
+        primeroM->ant=ultimoM;
         newMaletas->cantidad++;
 
     }
 }
 
-///********************MOSTRAR LISTA DOBLE CIRCUAR*********************
+///********************ELIMINAR LISTA DOBLE CIRCULAR DE LAS MALETAS***************
+///
+void Maletas::Eliminar_Maleta(){
+    if(primeroM!=ultimoM){
+        primeroM=primeroM->sig;
+        ultimoM->sig=primeroM;
+        primeroM->ant=ultimoM;
+        newMaletas->cantidad--;
+    }else{
+        newMaletas->cantidad--;
+        primeroM=ultimoM=NULL;
+    }
+}
+///********************MOSTRAR LISTA DOBLE CIRCUAR********************************
 ///
 void Maletas::Graficar_Maleta(){
     if(primeroM!=NULL){
