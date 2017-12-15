@@ -52,7 +52,13 @@ struct ColaPasajeros
 ///**************************ESTRUCTURA DE LA COLA DE LOS ESCRITORIOS**************************
 ///
 
-struct NodoCola
+struct NodoPila ///Pila de Documentos Enlazada a los Escritorios...
+{
+    int Documento;
+    NodoPila *sig;
+};
+
+struct NodoCola ///Cola de las Personas en los Escritorios
 {
     int Avion;
     int Maletas;
@@ -63,7 +69,7 @@ struct NodoCola
 
 
 
-struct NodoEscritorio
+struct NodoEscritorio /// Lista Doble de los Escritorios
 {
     char *Escritorio;
     int Cantidad;
@@ -71,6 +77,8 @@ struct NodoEscritorio
     struct NodoEscritorio *ant;
     struct NodoCola *primeroC;
     struct NodoCola *ultimoC;
+    struct NodoPila *primeroP;
+    struct NodoPila *ultimoP;
 
 };
 
@@ -81,7 +89,9 @@ struct ColaEscritorios
     void Mostrar_Cola_Escritorios();
     void Graficar_Cola_Escritorios();
     void Cola(NodoColaPasajeros *Nuevo);
+    void Documentos(NodoEscritorio *Nuevo);
     void Verificar_Turnos_Escritoios();
+    void Verificar_Documentos();
     void Eliminar_Cola_Escritorios(NodoEscritorio *Actual);
     int contador=0;
 };
@@ -106,8 +116,6 @@ struct Maletas
 
 ///*************************ESTRUCTURA DEL MANTENIMIENTO DE LOS AVIONES***********************
 ///
-
-
 struct NodoMantenimiento
 {
     int Avion;
@@ -144,6 +152,8 @@ struct ColaMantenimiento
     void Eliminer_Cola_Mantenimiento();
     void Graficar_Cola_Mantenimiento();
 };
+
+
 
 #endif // ESTRUCTURAS_H
 

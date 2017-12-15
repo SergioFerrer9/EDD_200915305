@@ -33,6 +33,9 @@ NodoES *ultimoES;
 ///************************PUNTEROS DE LA COLA SIMPLE*******************
 typedef struct NodoCola NodoC;
 
+///************************PUNTEROS PILA DE LOS DOCUMENTOS*******************
+typedef struct NodoPila NodoP;
+
 ///************************PUNTEROS LISTA DOBLE CIRCULAR*******************
 typedef struct NodoMaleta NodoM;
 NodoM *primeroM;
@@ -185,6 +188,13 @@ void ColaPasajeros::Verificar_Turnos_Pasajeros(){
 
             }
         }
+
+       // newEscritorios->Documentos(primeroPA);
+       //
+       // AGREGAR LO DE LOS DOCUMENTOS....
+        //
+        //
+
     }
 }
 
@@ -400,6 +410,7 @@ void ColaEscritorios::Agregar_Cola_Escritorios(char *escritorio, int cantidad){
         ultimoES=nuevo;
         newEscritorios->contador++;
         nuevo->primeroC=NULL;
+        nuevo->primeroP=NULL;
     }else{
         nuevo->sig=NULL;
         nuevo->ant=ultimoES;
@@ -407,7 +418,7 @@ void ColaEscritorios::Agregar_Cola_Escritorios(char *escritorio, int cantidad){
         ultimoES=nuevo;
         newEscritorios->contador++;
         nuevo->primeroC=NULL;
-
+        nuevo->primeroP=NULL;
 
     }
 
@@ -492,6 +503,46 @@ void ColaEscritorios::Cola(NodoColaPasajeros *Nuevo){
     }
 }
 
+///*****************AGREGAR LOS DOCUMENTOS EN EL ESCRITORIO******************
+///
+void ColaEscritorios::Documentos(NodoEscritorio *Nuevo){
+    NodoP *nuevo;
+    nuevo=(NodoP*)malloc(sizeof(struct NodoPila));
+    nuevo->Documento=Nuevo->primeroC->Documentos;
+    nuevo->sig=NULL;
+
+    for(int i=0;i<Nuevo->primeroC->Documentos;i++){
+            if(Nuevo->primeroP==NULL){ // Agregar el Primer Nodo de la Cola...
+               nuevo->sig=NULL;
+               Nuevo->primeroP=nuevo;
+               Nuevo->ultimoP=nuevo;
+              cout<<"DOCUMENTO"<<Nuevo->primeroC->Documentos<<endl;
+             }else{
+               nuevo->sig=NULL;
+               Nuevo->ultimoP->sig=nuevo;
+               Nuevo->ultimoP=nuevo;
+               cout<<"DOCUMENTO.."<<Nuevo->primeroC->Documentos<<endl;
+           }
+
+    }
+
+
+}
+
+void ColaEscritorios::Verificar_Documentos(){
+    if(primeroES!=NULL){
+        NodoES *actual=primeroES;
+        while(actual!=NULL){
+            if(actual->primeroC!=NULL){
+                 Documentos(actual);
+            }else{
+                break;
+            }
+            actual=actual->sig;
+        }
+    }
+}
+
 ///*************MOSTRAR COLA DE LOS ESCRITORIOS********************
 ///
 void ColaEscritorios::Mostrar_Cola_Escritorios(){
@@ -563,7 +614,10 @@ void ColaEscritorios::Graficar_Cola_Escritorios(){
       int a=1;
 
       NodoES *aux=primeroES;
+
       while(aux!=NULL){
+          int aa=1;
+          int pp=1;
           fputs("\"",gra);
           fputs("nodoEscritorio",gra);
           fprintf(gra,"%d",a);
@@ -572,9 +626,46 @@ void ColaEscritorios::Graficar_Cola_Escritorios(){
           fprintf(gra, "label=\" " );
           fputs("Escritorio: ",gra);
           fprintf(gra, "%s",aux->Escritorio);
+
+          if(aux->primeroC!=NULL){
+              fputs(" &#92;n ",gra);
+              fputs("Estado: ",gra);
+              fputs("OCUPADO ",gra);
+              fputs(" &#92;n ",gra);
+              fputs("Cliente: ",gra);
+              fprintf(gra, "%s",aux->Escritorio);
+              fprintf(gra, "%d",aa);
+              fputs(" &#92;n ",gra);
+              fputs("Documentos: ",gra);
+              fprintf(gra, "%d",aux->primeroC->Documentos);
+              fputs(" &#92;n ",gra);
+              fputs("Turnos: ",gra);
+              fprintf(gra, "%d",aux->primeroC->Turnos);
+
+          }else{
+              fputs(" &#92;n ",gra);
+              fputs("Estado: ",gra);
+              fputs("LIBRE ",gra);
+          }          
           fputs("\"];\n",gra);
+
+          if(aux->primeroC!=NULL){
+                  for(int i=1;i<=aux->primeroC->Documentos;i++){
+                      fputs("\"",gra);
+                      fputs("nodoDoc",gra);
+                      fprintf(gra,"%s",aux->Escritorio);
+                      fprintf(gra,"%d",i);
+                      fputs("\"",gra);
+                      fputs("\n[ ",gra);
+                      fprintf(gra, "label=\" " );
+                      fputs("Doc",gra);
+                      fprintf(gra, "%d",i);
+                      fputs("\"];\n",gra);
+
+                  }
+            }
+                  ///Nodos de la Cola de espera
                   NodoC *actual=aux->primeroC;
-                  int aa=1;
                   while(actual!=NULL){
                       fputs("\"",gra);
                       fputs("nodoPas",gra);
@@ -598,10 +689,9 @@ void ColaEscritorios::Graficar_Cola_Escritorios(){
                   }
 
 
-
-
           a++;
           aux=aux->sig;
+
       }
 
       int b =1;
@@ -622,6 +712,24 @@ void ColaEscritorios::Graficar_Cola_Escritorios(){
           fputs("\"-> \"nodoEscritorio",gra);
           fprintf(gra,"%d",b);
           fputs( "\";\n",gra);
+
+          if(aux2->primeroC!=NULL){
+                  for(int i=1;i<=aux2->primeroC->Documentos;i++){
+                      // nodo1---->nodo2 siguintes
+                      fputs("\"nodoDoc",gra);
+                      fprintf(gra,"%s",aux2->Escritorio);
+                      fprintf(gra,"%d",i);
+                      fputs("\"-> \"nodoDoc",gra);
+                      fprintf(gra,"%s",aux2->Escritorio);
+                      fprintf(gra,"%d",i+1);
+                      fputs( "\";\n",gra);
+
+                  }
+            }
+
+
+
+
           int bb =1;
           int cc =bb+1;
                   NodoC *actual=aux2->primeroC;
@@ -633,6 +741,14 @@ void ColaEscritorios::Graficar_Cola_Escritorios(){
                           fprintf(gra,"%s",aux2->Escritorio);
                           fprintf(gra,"%d",bb);
                           fputs( "\";\n",gra);
+
+                          fputs("\"nodoEscritorio",gra);
+                          fprintf(gra,"%d",b);
+                          fputs("\"-> \"nodoDoc",gra);
+                          fprintf(gra,"%s",aux2->Escritorio);
+                          fprintf(gra,"%d",1);
+                          fputs( "\";\n",gra);
+
                           while(actual!=NULL){
                               // nodo1---->nodo2 siguintes
                               fputs("\"nodoPas",gra);
