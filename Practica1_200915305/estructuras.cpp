@@ -36,6 +36,10 @@ typedef struct NodoCola NodoC;
 ///************************PUNTEROS PILA DE LOS DOCUMENTOS*******************
 typedef struct NodoPila NodoP;
 
+///************************PUNTEROS AVION EN MANTENIMIENTO*******************
+typedef struct NodoMantenimiento NodoMA;
+
+
 ///************************PUNTEROS LISTA DOBLE CIRCULAR*******************
 typedef struct NodoMaleta NodoM;
 NodoM *primeroM;
@@ -562,7 +566,6 @@ void ColaEscritorios::Mostrar_Cola_Escritorios(){
 void ColaEscritorios::Verificar_Turnos_Escritoios(){
     if(primeroES!=NULL){
         NodoES *temp=primeroES;
-
             while(temp!=NULL){
                 if(temp->primeroC!=NULL){
                     if(temp->primeroC->Turnos>0){
@@ -793,7 +796,6 @@ void Maletas::Agregar_Maleta(){
     NodoM *nuevo;
     nuevo=(NodoM*)malloc(sizeof(struct NodoMaleta));
 
-
     if(primeroM==NULL){
         nuevo->sig=NULL;
         nuevo->ant=NULL;
@@ -905,6 +907,7 @@ void Estacion::Agregar_Estacion(int estacion, int avion, int turnos){
     nuevo->Estacion=estacion;
     nuevo->Avion=avion;
     nuevo->Turnos=turnos;
+    nuevo->primeroMA=NULL;
 
     if(primeroE==NULL){
         nuevo->sig=NULL;
@@ -917,6 +920,47 @@ void Estacion::Agregar_Estacion(int estacion, int avion, int turnos){
     }
 }
 
+void Estacion::Agregar_Avion_Estacion(NodoE *Actual,NodoCM *Nuevo){
+    NodoMA *nuevo;
+    nuevo=(NodoMA*)malloc(sizeof(struct NodoMantenimiento));
+    nuevo->Avion=Nuevo->Avion;
+    nuevo->Turnos=Nuevo->Turnos;
+
+
+            nuevo->sig=NULL;
+            Actual->primeroMA=nuevo;
+
+
+}
+
+///*********************VERIFICAR COLA DE AVIONES EN ESPERA DE MANTENIMIENTO****************
+///
+void Estacion::Verificar_Estacion(){
+    if(primeroE!=NULL){
+        NodoE *aux=primeroE;
+        while(aux!=NULL){
+            if(aux->primeroMA!=NULL){
+                if(aux->primeroMA->Turnos>0){
+                    aux->primeroMA->Turnos--;
+                }
+                if(aux->primeroMA->Turnos==0){
+                    ///Eliminar Avion de la cola de espera
+                    /// y agregarlo a las Estaciones...
+                    aux->primeroMA=NULL;
+                    newMantenimiento->Eliminer_Cola_Mantenimiento(aux);
+                }
+
+            }else{
+                newMantenimiento->Eliminer_Cola_Mantenimiento(aux);
+            }
+
+            aux=aux->sig;
+        }
+    }
+}
+
+///*******************GRAFICAR ESTACIONES DE MANTENIMIENTO*****************
+///
 void Estacion::Graficar_Estacion(){
    if(primeroE!=NULL){
    fputs("\n subgraph cluster_4 {\n",gra);
@@ -934,13 +978,43 @@ void Estacion::Graficar_Estacion(){
           fputs("Estacion: ",gra);
           fprintf(gra, "%d",a);
           fputs(" &#92;n ",gra);
-          fputs("Avion: ",gra);
-          fprintf(gra, "%d",aux->Avion);
-          fputs(" &#92;n ",gra);
-          fputs("Turnos: ",gra);
-          fprintf(gra, "%d",aux->Turnos);
-          fputs(" &#92;n ",gra);
-          fputs("\"];\n",gra);
+
+          if(aux->primeroMA!=NULL){
+              fputs("Estado: ",gra);
+              fputs("OCUPADO: ",gra);
+              fputs(" &#92;n ",gra);
+              fputs("Avion: ",gra);
+              fprintf(gra, "%d",aux->primeroMA->Avion);
+              fputs(" &#92;n ",gra);
+              fputs("Turnos: ",gra);
+              fprintf(gra, "%d",aux->primeroMA->Turnos);
+              fputs(" &#92;n ",gra);
+              fputs("\"];\n",gra);
+          }else{
+              fputs("Estado: ",gra);
+              fputs("LIBRE: ",gra);
+              fputs("\"];\n",gra);
+          }
+
+          if(aux->primeroMA!=NULL){
+              fputs("\"",gra);
+              fputs("nodoAvionME",gra);
+              fprintf(gra,"%d",a);
+              fputs("\"",gra);
+              fputs("\n[ ",gra);
+              fprintf(gra, "label=\" " );
+              fputs("Avion: ",gra);
+              fprintf(gra, "%d",aux->primeroMA->Avion);
+              fputs(" &#92;n ",gra);
+              fputs("Turnos: ",gra);
+              fprintf(gra, "%d",aux->primeroMA->Turnos);
+              fputs(" &#92;n ",gra);
+              fputs("\"];\n",gra);
+          }
+
+
+
+
           a++;
               aux=aux->sig;
       }
@@ -955,6 +1029,15 @@ void Estacion::Graficar_Estacion(){
           fputs("\"-> \"nodoEstacion",gra);
           fprintf(gra,"%d",c);
           fputs( "\";\n",gra);
+
+          if(aux->primeroMA!=NULL){
+              // Estacion1---->nodo2 siguintes
+              fputs("\"nodoEstacion",gra);
+              fprintf(gra,"%d",b);
+              fputs("\"-> \"nodoAvionME",gra);
+              fprintf(gra,"%d",b);
+              fputs( "\";\n",gra);
+          }
 
 
               aux=aux->sig;
@@ -982,10 +1065,12 @@ void ColaMantenimiento::Agregar_Cola_Mantenimiento(NodoColaAviones *Nuevo){
     nuevo->Estado="VACIO";
     nuevo->Turnos=Nuevo->Turno_Mantenimiento;
 
+
     if(primeroCM==NULL){
         nuevo->sig=NULL;
         primeroCM=nuevo;
         ultimoCM=nuevo;
+
     }else{
         nuevo->sig=NULL;
         ultimoCM->sig=nuevo;
@@ -993,6 +1078,27 @@ void ColaMantenimiento::Agregar_Cola_Mantenimiento(NodoColaAviones *Nuevo){
     }
 
 }
+
+
+
+/// ******************ELIMINAR COLA DE MANTENIMIENTO****************************************
+///
+void ColaMantenimiento::Eliminer_Cola_Mantenimiento(NodoE *actual){
+  if(primeroCM!=NULL){
+        if(primeroCM!=ultimoCM){
+                newEstaciones->Agregar_Avion_Estacion(actual, primeroCM);
+                primeroCM=primeroCM->sig;
+
+        }else{
+
+                newEstaciones->Agregar_Avion_Estacion(actual,primeroCM);
+                primeroCM=ultimoCM=NULL;
+
+        }
+    }
+
+}
+
 
 ////*****************GRAFICAR COLA DE MANTENIMIENTO*****************************************
 ///
@@ -1008,7 +1114,7 @@ void ColaMantenimiento::Graficar_Cola_Mantenimiento(){
            fputs("\"",gra);
            fputs("\n[ ",gra);
            fprintf(gra, "label=\" " );
-           fputs("Avion: ",gra);
+           fputs("#: ",gra);
            fprintf(gra, "%d",a);
            fputs(" &#92;n ",gra);
            fputs("Avion: ",gra);

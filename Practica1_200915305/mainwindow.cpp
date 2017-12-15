@@ -15,6 +15,7 @@ stringstream ss;
 ColaAviones *Cola =new ColaAviones();
 ColaEscritorios *Escri = new ColaEscritorios();
 ColaPasajeros *pasajeros = new ColaPasajeros();
+Estacion *estacion= new Estacion();
 
 Estacion *estaciones = new Estacion();
 int contador_Aviones=0;
@@ -172,6 +173,7 @@ void MainWindow::on_pushButton_3_clicked()///TURNOS......
     Turnos();
     Escri->Verificar_Turnos_Escritoios();
     pasajeros->Verificar_Turnos_Pasajeros();
+    estacion->Verificar_Estacion();
     Cola->Verificar_Turnos();
     Escri->Mostrar_Cola_Escritorios();
     Graficar_Estructuras();

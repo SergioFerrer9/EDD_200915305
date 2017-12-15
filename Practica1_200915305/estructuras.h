@@ -119,6 +119,7 @@ struct Maletas
 struct NodoMantenimiento
 {
     int Avion;
+    int Turnos;
     struct NodoAvion *sig;
 };
 
@@ -131,13 +132,6 @@ struct NodoEstacion
     NodoMantenimiento *primeroMA;
 };
 
-struct Estacion
-{
-    void Agregar_Estacion(int estacion, int avion, int turnos);
-    void Eliminar_Estacion();
-    void Graficar_Estacion();
-};
-
 struct NodoColaMantenimiento
 {
     int Avion;
@@ -146,11 +140,22 @@ struct NodoColaMantenimiento
     struct NodoColaMantenimiento *sig;
 };
 
+struct Estacion
+{
+    void Agregar_Estacion(int estacion, int avion, int turnos);
+    void Agregar_Avion_Estacion(NodoEstacion *Actual, NodoColaMantenimiento *Nuevo);
+    void Eliminar_Estacion();
+    void Graficar_Estacion();
+    void Verificar_Estacion();
+};
+
+
 struct ColaMantenimiento
 {
     void Agregar_Cola_Mantenimiento(NodoColaAviones *Nuevo);
-    void Eliminer_Cola_Mantenimiento();
+    void Eliminer_Cola_Mantenimiento(NodoEstacion *Aux);
     void Graficar_Cola_Mantenimiento();
+
 };
 
 
