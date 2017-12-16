@@ -19,11 +19,11 @@
 #include <QtWidgets/QLineEdit>
 #include <QtWidgets/QMainWindow>
 #include <QtWidgets/QMenuBar>
-#include <QtWidgets/QPlainTextEdit>
 #include <QtWidgets/QPushButton>
 #include <QtWidgets/QScrollArea>
 #include <QtWidgets/QStatusBar>
 #include <QtWidgets/QTabWidget>
+#include <QtWidgets/QTextEdit>
 #include <QtWidgets/QToolBar>
 #include <QtWidgets/QWidget>
 
@@ -54,8 +54,9 @@ public:
     QGridLayout *gridLayout;
     QLabel *label_2;
     QWidget *tab_4;
-    QPlainTextEdit *plainTextEdit;
-    QPushButton *pushButton;
+    QTextEdit *textEdit;
+    QLineEdit *lineEdit_5;
+    QLabel *label_6;
     QMenuBar *menuBar;
     QToolBar *mainToolBar;
     QStatusBar *statusBar;
@@ -82,7 +83,7 @@ public:
         lineEdit->setGeometry(QRect(110, 10, 51, 23));
         pushButton_2 = new QPushButton(centralWidget);
         pushButton_2->setObjectName(QStringLiteral("pushButton_2"));
-        pushButton_2->setGeometry(QRect(680, 10, 80, 23));
+        pushButton_2->setGeometry(QRect(800, 10, 80, 23));
         pushButton_3 = new QPushButton(centralWidget);
         pushButton_3->setObjectName(QStringLiteral("pushButton_3"));
         pushButton_3->setGeometry(QRect(1210, 10, 80, 23));
@@ -91,17 +92,17 @@ public:
         label_3->setGeometry(QRect(20, 10, 91, 16));
         label_4 = new QLabel(centralWidget);
         label_4->setObjectName(QStringLiteral("label_4"));
-        label_4->setGeometry(QRect(190, 10, 101, 16));
+        label_4->setGeometry(QRect(170, 10, 101, 16));
         lineEdit_2 = new QLineEdit(centralWidget);
         lineEdit_2->setObjectName(QStringLiteral("lineEdit_2"));
-        lineEdit_2->setGeometry(QRect(300, 10, 51, 23));
+        lineEdit_2->setGeometry(QRect(270, 10, 51, 23));
         lineEdit_3 = new QLineEdit(centralWidget);
         lineEdit_3->setObjectName(QStringLiteral("lineEdit_3"));
         lineEdit_3->setEnabled(true);
-        lineEdit_3->setGeometry(QRect(610, 10, 51, 23));
+        lineEdit_3->setGeometry(QRect(560, 10, 51, 23));
         label_5 = new QLabel(centralWidget);
         label_5->setObjectName(QStringLiteral("label_5"));
-        label_5->setGeometry(QRect(380, 10, 241, 16));
+        label_5->setGeometry(QRect(330, 10, 241, 16));
         lineEdit_4 = new QLineEdit(centralWidget);
         lineEdit_4->setObjectName(QStringLiteral("lineEdit_4"));
         lineEdit_4->setGeometry(QRect(1150, 10, 41, 31));
@@ -137,13 +138,17 @@ public:
         tabWidget->addTab(tab_3, QString());
         tab_4 = new QWidget();
         tab_4->setObjectName(QStringLiteral("tab_4"));
-        plainTextEdit = new QPlainTextEdit(tab_4);
-        plainTextEdit->setObjectName(QStringLiteral("plainTextEdit"));
-        plainTextEdit->setGeometry(QRect(40, 30, 611, 441));
+        textEdit = new QTextEdit(tab_4);
+        textEdit->setObjectName(QStringLiteral("textEdit"));
+        textEdit->setGeometry(QRect(40, 20, 621, 461));
         tabWidget->addTab(tab_4, QString());
-        pushButton = new QPushButton(centralWidget);
-        pushButton->setObjectName(QStringLiteral("pushButton"));
-        pushButton->setGeometry(QRect(760, 10, 31, 23));
+        lineEdit_5 = new QLineEdit(centralWidget);
+        lineEdit_5->setObjectName(QStringLiteral("lineEdit_5"));
+        lineEdit_5->setEnabled(true);
+        lineEdit_5->setGeometry(QRect(710, 10, 51, 23));
+        label_6 = new QLabel(centralWidget);
+        label_6->setObjectName(QStringLiteral("label_6"));
+        label_6->setGeometry(QRect(630, 10, 91, 16));
         MainWindow->setCentralWidget(centralWidget);
         menuBar = new QMenuBar(MainWindow);
         menuBar->setObjectName(QStringLiteral("menuBar"));
@@ -158,7 +163,7 @@ public:
 
         retranslateUi(MainWindow);
 
-        tabWidget->setCurrentIndex(0);
+        tabWidget->setCurrentIndex(1);
 
 
         QMetaObject::connectSlotsByName(MainWindow);
@@ -179,7 +184,7 @@ public:
         label_2->setText(QString());
         tabWidget->setTabText(tabWidget->indexOf(tab_3), QApplication::translate("MainWindow", "Estructuras", nullptr));
         tabWidget->setTabText(tabWidget->indexOf(tab_4), QApplication::translate("MainWindow", "Consola", nullptr));
-        pushButton->setText(QApplication::translate("MainWindow", "X", nullptr));
+        label_6->setText(QApplication::translate("MainWindow", "Cant. Turnos", nullptr));
     } // retranslateUi
 
 };

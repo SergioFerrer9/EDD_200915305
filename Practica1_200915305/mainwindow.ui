@@ -27,7 +27,7 @@
    <widget class="QPushButton" name="pushButton_2">
     <property name="geometry">
      <rect>
-      <x>680</x>
+      <x>800</x>
       <y>10</y>
       <width>80</width>
       <height>23</height>
@@ -66,7 +66,7 @@
    <widget class="QLabel" name="label_4">
     <property name="geometry">
      <rect>
-      <x>190</x>
+      <x>170</x>
       <y>10</y>
       <width>101</width>
       <height>16</height>
@@ -79,7 +79,7 @@
    <widget class="QLineEdit" name="lineEdit_2">
     <property name="geometry">
      <rect>
-      <x>300</x>
+      <x>270</x>
       <y>10</y>
       <width>51</width>
       <height>23</height>
@@ -92,7 +92,7 @@
     </property>
     <property name="geometry">
      <rect>
-      <x>610</x>
+      <x>560</x>
       <y>10</y>
       <width>51</width>
       <height>23</height>
@@ -102,7 +102,7 @@
    <widget class="QLabel" name="label_5">
     <property name="geometry">
      <rect>
-      <x>380</x>
+      <x>330</x>
       <y>10</y>
       <width>241</width>
       <height>16</height>
@@ -132,7 +132,7 @@
      </rect>
     </property>
     <property name="currentIndex">
-     <number>0</number>
+     <number>1</number>
     </property>
     <widget class="QWidget" name="tab_3">
      <attribute name="title">
@@ -174,29 +174,42 @@
      <attribute name="title">
       <string>Consola</string>
      </attribute>
-     <widget class="QPlainTextEdit" name="plainTextEdit">
+     <widget class="QTextEdit" name="textEdit">
       <property name="geometry">
        <rect>
         <x>40</x>
-        <y>30</y>
-        <width>611</width>
-        <height>441</height>
+        <y>20</y>
+        <width>621</width>
+        <height>461</height>
        </rect>
       </property>
      </widget>
     </widget>
    </widget>
-   <widget class="QPushButton" name="pushButton">
+   <widget class="QLineEdit" name="lineEdit_5">
+    <property name="enabled">
+     <bool>true</bool>
+    </property>
     <property name="geometry">
      <rect>
-      <x>760</x>
+      <x>710</x>
       <y>10</y>
-      <width>31</width>
+      <width>51</width>
       <height>23</height>
      </rect>
     </property>
+   </widget>
+   <widget class="QLabel" name="label_6">
+    <property name="geometry">
+     <rect>
+      <x>630</x>
+      <y>10</y>
+      <width>91</width>
+      <height>16</height>
+     </rect>
+    </property>
     <property name="text">
-     <string>X</string>
+     <string>Cant. Turnos</string>
     </property>
    </widget>
   </widget>

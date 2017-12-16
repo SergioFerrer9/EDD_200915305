@@ -1,8 +1,13 @@
 #ifndef ESTRUCTURAS_H
 #define ESTRUCTURAS_H
+#include <QString>
+
 
 ///****************************ESTRUCTURA DE LA COLA DOBLE DE LOS AVIONES*********************
 ///
+
+
+
 
 struct NodoColaAviones
 {
@@ -13,6 +18,7 @@ struct NodoColaAviones
     int Turno_Mantenimiento;
     struct NodoColaAviones *sig;
     struct NodoColaAviones *ant;
+
 };
 
 struct ColaAviones
@@ -23,6 +29,7 @@ struct ColaAviones
     void Graficar_Cola_Aviones();
     void Verificar_Turnos();
     void Desabordaje(int Pasajeros, int Avion);
+    QString ConsolaAviones();
 };
 
 ///**************************ESTRUCTURA DE LA COLA SIMPLE DE LOS PASAJEROS*********************
@@ -44,6 +51,7 @@ struct ColaPasajeros
     void Graficar_Cola_Pasajeros();
     void Eliminar_Cola_Pasajeros();
     void Verificar_Turnos_Pasajeros();
+    QString Consola_COla_Pasajeros();
 
 
 
@@ -93,6 +101,7 @@ struct ColaEscritorios
     void Verificar_Turnos_Escritoios();
     void Verificar_Documentos();
     void Eliminar_Cola_Escritorios(NodoEscritorio *Actual);
+    QString Consola_Cola_Escritorios();
     int contador=0;
 };
 
@@ -112,6 +121,7 @@ struct Maletas
     void Agregar_Maleta();
     void Eliminar_Maleta();
     void Graficar_Maleta();
+    QString Consola_Maletas();
 };
 
 ///*************************ESTRUCTURA DEL MANTENIMIENTO DE LOS AVIONES***********************
@@ -157,6 +167,8 @@ struct ColaMantenimiento
     void Graficar_Cola_Mantenimiento();
 
 };
+
+
 
 
 

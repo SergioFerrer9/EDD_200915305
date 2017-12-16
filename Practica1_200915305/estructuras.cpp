@@ -1,7 +1,9 @@
 #include "estructuras.h"
+#include "mainwindow.h"
 #include <stdlib.h>
 #include <iostream>
 #include <string.h>
+#include <QString>
 
 using namespace std;
 using std::cout;
@@ -13,7 +15,11 @@ Maletas *newMaletas = new Maletas();
 Estacion *newEstaciones = new Estacion();
 ColaMantenimiento *newMantenimiento = new ColaMantenimiento();
 
+
+
 FILE *gra;
+
+
 
 ///************************PUNTEROS DE LA COLA AVIONES*************************
 typedef struct NodoColaAviones NodoCA;
@@ -61,6 +67,8 @@ NodoCM *ultimoCM;
 ///***********************AGREGAR A LA COLA AVIONES****************************
 ///
 void ColaAviones::Agregar_Cola_Aviones(int Avion, char *Tipo, int Pasajeros, int Turno_D, int Turno_M){
+
+
     NodoCA *nuevo;
     nuevo=(NodoCA*)malloc(sizeof(struct NodoColaAviones));
     nuevo->Avion=Avion;
@@ -117,6 +125,40 @@ void ColaAviones::Mostrar_Cola_Aviones(){
 
 
 }
+QString ColaAviones::ConsolaAviones(){
+
+    NodoCA *aux=primeroCA;
+    QString informacion="";
+    informacion.append("**************COLA DE AVIONES**************\n");
+    QString s;
+    QString ss;
+    QString sss;
+
+    int Avion;
+    int Pasajeros;
+    int Turnos;
+    while(aux!=NULL){
+        Avion=aux->Avion;
+        s = QString::number(Avion);
+        informacion.append("Avion: ");
+        informacion.append(s);
+        informacion.append("\n");
+        Pasajeros=aux->Pasajeros;
+        ss = QString::number(Pasajeros);
+        informacion.append("Cantidad Pasajeros: ");
+        informacion.append(ss);
+        informacion.append("\n");
+        Turnos=aux->Turno_Desabordaje;
+        sss = QString::number(Turnos);
+        informacion.append("Turnos en Espera: ");
+        informacion.append(sss);
+        informacion.append("\n\n");
+        aux=aux->sig;
+    }
+
+    return informacion;
+
+}
 
 ///*********************AGREGAR A LA COLA DE PASAJEROS***************************
 ///
@@ -159,6 +201,47 @@ void ColaPasajeros::Eliminar_Cola_Pasajeros(){
     }
 
 
+}
+
+QString ColaPasajeros::Consola_COla_Pasajeros(){
+    NodoPA *aux=primeroPA;
+    QString informacion="";
+    informacion.append("**************COLA DE LOS PASAJEROS**************\n");
+    QString s;
+    QString ss;
+    QString sss;
+    QString c;
+
+    int Avion;
+    int Pasajeros;
+    int Turnos;
+    int Contador=0;
+    while(aux!=NULL){
+        Contador++;
+        s = QString::number(Contador);
+        informacion.append("Pasajero: ");
+        informacion.append(s);
+        informacion.append("\n");
+        Pasajeros=aux->Maletas;
+        ss = QString::number(Pasajeros);
+        informacion.append("Cant. Maletas: ");
+        informacion.append(ss);
+        informacion.append("\n");
+        Turnos=aux->Documentos;
+        sss = QString::number(Turnos);
+        informacion.append("Cant. Documentos: ");
+        informacion.append(sss);
+        informacion.append("\n");
+        Turnos=aux->Turnos;
+        c = QString::number(Turnos);
+        informacion.append("Turnos Restantes: ");
+        informacion.append(c);
+        informacion.append("\n\n");
+
+        aux=aux->sig;
+    }
+
+    return informacion;
 }
 
 ///********VERIFICAR SI AI PASAJEROS PARA PASAR A LOS ESCRITORIOS*****
@@ -450,6 +533,34 @@ void ColaEscritorios::Ordenar(){
 
 }
 
+QString ColaEscritorios::Consola_Cola_Escritorios(){
+    NodoES *aux=primeroES;
+    QString informacion="";
+    informacion.append("**************LISTA DOBLE DE LOS ESCRITORIOS**************\n");
+    QString s;
+    QString escritorio;
+
+
+    int Avion;
+    int Pasajeros;
+    int Turnos;
+    int Contador=0;
+    if(aux->primeroC!=NULL){
+    while(aux!=NULL){
+        escritorio=aux->Escritorio;
+        informacion.append("Escritorio: ");
+        informacion.append(escritorio);
+        informacion.append("\n");
+        Pasajeros=aux->Cantidad;
+        s = QString::number(Pasajeros);
+        informacion.append("Cant. De Personas en Espera: ");
+        informacion.append(s);
+        informacion.append("\n\n");
+        aux=aux->sig;
+    }
+    }
+    return informacion;
+}
 
 
 ///************AGREGAR A COLAS DE LOS PASAJEROS EN LOS ESCRITORIOS******************
@@ -895,6 +1006,19 @@ void Maletas::Graficar_Maleta(){
    fputs("label =\"Maletas\"\n",gra);
    fputs("}\n",gra);
 }
+}
+
+QString Maletas::Consola_Maletas(){
+    QString informacion="";
+    informacion.append("**************LISTA CIRCULAR MALETAS**************\n");
+    QString maleta = QString::number(newMaletas->cantidad);
+
+    informacion.append("Cantidad de Maletas en la Lista Circular: ");
+    informacion.append(maleta);
+    informacion.append("\n");
+
+
+    return informacion;
 }
 
 ///******************ESTRUCTURA DEL MANTENIMIENTO DE LOS AVIONES**************************
